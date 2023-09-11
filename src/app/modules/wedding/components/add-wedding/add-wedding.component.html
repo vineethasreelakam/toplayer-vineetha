@@ -1,0 +1,40 @@
+<app-breadcrumb
+  [title]="'Wedding Event'"
+  [active_item]="'Create Wedding Event'"
+></app-breadcrumb>
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="mb-3 m-form__group">
+        <label>Select Wedding Event</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-calendar"></i></span>
+          <ng-select
+            class="form-control form-ng-select custom-ng-select"
+            autocomplete="off"
+            placeholder="Select Event"
+            name="event"
+          >
+            <!-- <ng-option
+              *ngFor="let event of events"
+              [value]="event.profile_id"
+              >{{ event?.name }}</ng-option
+            > -->
+          </ng-select>
+          <div class="event-actions">
+            <span class="view-event btn btn-primary btn-block"  (click)="addEvent()" ><a>Add Event</a></span>
+            <!-- <i class="icon-pencil-alt" title="Edit Event" (click)="editEvent()"></i>
+            <i class="icon-trash" title="Delete Event" (click)="deleteEvent()"></i> -->
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-pill mt-4 btn-info follow-btn" type="button" (click)="viewWeddingTemplate()">View Wedding Template</button>
+    </div>
+</div>
+
+

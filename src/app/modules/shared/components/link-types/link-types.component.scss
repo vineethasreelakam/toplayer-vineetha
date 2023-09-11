@@ -1,0 +1,26 @@
+.close{
+    border: none;
+    background: #fff;
+    font-size: 20px;
+}
+.link-types{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    padding: 10px 5px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    p{
+        margin: 0;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    
+}
+.btn-square{
+    border-radius: 4rem;
+    width: 90%;
+}
+// .link-types:hover{
+//     border: 1px solid var(--theme-deafult) !important;
+//     // box-shadow: rgb(186, 212, 253) 0px 2px 8px 0px;
+// }

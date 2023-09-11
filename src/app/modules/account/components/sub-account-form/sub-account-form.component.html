@@ -1,0 +1,579 @@
+<app-breadcrumb [title]="'User List'" [items]="['Sub Account']" [active_item]="'User List'"></app-breadcrumb>
+<div class="row ">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="back-icon" routerLink='/user/account/sub-account/list'>
+              <i class="icon-arrow-left"></i>
+            </div>
+            <div class="card-header pb-0">
+             
+              <h5>{{headText}}</h5>
+              <!-- <span>Not interested in custom validation feedback messages or writing JavaScript to change form behaviors? All good, you can use the browser defaults. Try submitting the form below. Depending on your browser and OS, you’ll see a slightly different style of feedback.</span><span>While these feedback styles cannot be styled with CSS, you can still customize the feedback text through JavaScript.</span> -->
+            </div>
+            <div class="card-body">
+             
+              <form [formGroup]="branchForm" (ngSubmit)="sumbitHandler()" autocomplete="off">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3 m-form__group">
+                      <label class="form-label">First Name</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                        <input
+                          class="form-control"
+                          type="text"
+                          required=""
+                          placeholder="First Name"
+                          formControlName="first_name"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['first_name'].errors) ||
+                              (!branchForm.controls['first_name'].pristine &&
+                                branchForm.controls['first_name'].invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted && branchForm.controls.first_name.errors) ||
+                            (!branchForm.controls.first_name.pristine &&
+                              branchForm.controls.first_name.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.first_name.errors?.required">
+                            First Name is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group">
+                      <label>Email Address</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-email"></i></span>
+                        <input
+                          class="form-control"
+                          type="email"
+                          required=""
+                          formControlName="email"
+                          placeholder="test@gmail.com"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['email'].errors) ||
+                              (!branchForm.controls['email'].pristine &&
+                                branchForm.controls['email'].invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted &&
+                              branchForm.controls['email'].errors) ||
+                            (!branchForm.controls['email'].pristine &&
+                              branchForm.controls['email'].invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls['email'].errors?.required">
+                            Email Address is required
+                          </div>
+                          <div *ngIf="branchForm.controls['email']?.errors?.pattern">
+                            Enter valid email
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group">
+                      <label>DOB</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-calendar"></i></span>
+                        <input
+                          class="form-control"
+                          type="text"
+                          required=""
+                          placeholder="DD/MM/YYYY"
+                          bsDatepicker
+                          [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                          formControlName="dob"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['dob'].errors) ||
+                              (!branchForm.controls['dob'].pristine &&
+                                branchForm.controls['dob'].invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted && branchForm.controls.dob.errors) ||
+                            (!branchForm.controls.dob.pristine &&
+                              branchForm.controls.dob.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.dob.errors?.required">
+                            Date of birth is required
+                          </div>
+                          <div *ngIf="branchForm.controls.dob.errors?.dateInvalid">
+                            Age must be more than 14
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group">
+                      <label>Mobile Number</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-mobile"></i></span>
+                        <input
+                          class="form-control"
+                          type="text"
+                          required=""
+                          placeholder="98******01"
+                          formControlName="mobile_no"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['mobile_no'].errors) ||
+                              (!branchForm.controls['mobile_no'].pristine &&
+                                branchForm.controls['mobile_no'].invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted &&
+                              branchForm.controls.mobile_no.errors) ||
+                            (!branchForm.controls.mobile_no.pristine &&
+                              branchForm.controls.mobile_no.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.mobile_no.errors?.required">
+                            Mobile Number is required
+                          </div>
+                          <div *ngIf="branchForm.controls.mobile_no.errors?.pattern">
+                            Provide 10 digit contact number
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="mb-3 m-form__group">
+                      <label class="form-label">Last Name</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                        <input
+                          class="form-control"
+                          type="text"
+                          required=""
+                          placeholder="Last Name"
+                          formControlName="last_name"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['last_name'].errors) ||
+                              (!branchForm.controls['last_name'].pristine &&
+                                branchForm.controls['last_name'].invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted && branchForm.controls.last_name.errors) ||
+                            (!branchForm.controls.last_name.pristine &&
+                              branchForm.controls.last_name.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.last_name.errors?.required">
+                           Last Name is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group">
+                      <label>Country</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-world"></i></span>
+                        <ng-select
+                          class="form-control form-ng-select custom-ng-select"
+                          autocomplete="off"
+                          placeholder="Country"
+                          formControlName="country"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['country'].errors) ||
+                              (!branchForm.controls['country'].pristine &&
+                                branchForm.controls['country'].invalid)
+                          }"
+                        >
+                          <ng-option
+                            *ngFor="let country of countries"
+                            [value]="country.country_id"
+                            >{{ country?.name }}</ng-option
+                          >
+                        </ng-select>
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted &&
+                              branchForm.controls.country.errors) ||
+                            (!branchForm.controls.country.pristine &&
+                              branchForm.controls.country.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.country.errors?.required">
+                            Country is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group">
+                      <label>Gender</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                        <ng-select
+                          class="form-control form-ng-select custom-ng-select"
+                          autocomplete="off"
+                          placeholder="Gender"
+                          formControlName="gender"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls['gender'].errors) ||
+                              (!branchForm.controls['gender'].pristine &&
+                                branchForm.controls['gender'].invalid)
+                          }"
+                        >
+                          <ng-option *ngFor="let gen of gender" [value]="gen.id">{{
+                            gen.name
+                          }}</ng-option>
+                        </ng-select>
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted &&
+                              branchForm.controls.gender.errors) ||
+                            (!branchForm.controls.gender.pristine &&
+                              branchForm.controls.gender.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.gender.errors?.required">
+                            Gender is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 m-form__group" *ngIf="!uniqueId">
+                      <label>Password <span class="required-asterisk">*</span></label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                        <input
+                          class="form-control"
+                          autocomplete="password"
+                          type="password"
+                          name="login[password]"
+                          [type]="show ? 'text' : 'password'"
+                          required=""
+                          placeholder="*********"
+                          formControlName="password"
+                          [ngClass]="{
+                            'is-invalid':
+                              (isFormSubmitted &&
+                                branchForm.controls.password.errors) ||
+                              (!branchForm.controls.password.pristine &&
+                                branchForm.controls.password.invalid)
+                          }"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="
+                            (isFormSubmitted &&
+                              branchForm.controls.password.errors) ||
+                            (!branchForm.controls.password.pristine &&
+                              branchForm.controls.password.invalid)
+                          "
+                        >
+                          <div *ngIf="branchForm.controls.password.errors?.required">
+                            Password is required
+                          </div>
+                        </div>
+                        <div class="show-hide" (click)="showPassword()" *ngIf="!show">
+                          <span class="show"></span>
+                        </div>
+                        <div class="show-hide" (click)="showPassword()" *ngIf="show">
+                          <span class="Hide"></span>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class="form-group text-right">
+                  <!-- <button class="btn btn-primary btn-block" type="submit">
+                    Submit
+                  </button> -->
+                  <!-- <button class="btn btn-primary btn-block" type="button" disabled *ngIf="uniqueId" (click)="edit()">{{ buttonName }}</button> -->
+                        <button class="btn btn-primary btn-block" type="submit"*ngIf="!uniqueId">Submit</button>
+                </div>
+              </form>
+              <!-- <form [formGroup]="branchForm" (ngSubmit)="sumbitHandler()">
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <label>Name</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        required=""
+                        placeholder="Full Name"
+                        formControlName="name"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['name'].errors) ||
+                            (!branchForm.controls['name'].pristine &&
+                              branchForm.controls['name'].invalid)
+                        }"
+                      />
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted && branchForm.controls.name.errors) ||
+                          (!branchForm.controls.name.pristine &&
+                            branchForm.controls.name.invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls.name.errors?.required">
+                          Name is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Email Address</label>
+                        <input
+                        class="form-control"
+                        type="email"
+                        required=""
+                        formControlName="email"
+                        placeholder="test@gmail.com"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['email'].errors) ||
+                            (!branchForm.controls['email'].pristine &&
+                              branchForm.controls['email'].invalid)
+                        }"
+                      />
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted &&
+                            branchForm.controls['email'].errors) ||
+                          (!branchForm.controls['email'].pristine &&
+                            branchForm.controls['email'].invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls['email'].errors?.required">
+                          Email Address is required
+                        </div>
+                        <div *ngIf="branchForm.controls['email']?.errors?.pattern">
+                          Enter valid email
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>DOB</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        required=""
+                        placeholder="DD/MM/YYYY"
+                        bsDatepicker
+                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                        formControlName="dob"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['dob'].errors) ||
+                            (!branchForm.controls['dob'].pristine &&
+                              branchForm.controls['dob'].invalid)
+                        }"
+                      />
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted && branchForm.controls.dob.errors) ||
+                          (!branchForm.controls.dob.pristine &&
+                            branchForm.controls.dob.invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls.dob.errors?.required">
+                          Date of birth is required
+                        </div>
+                        <div *ngIf="branchForm.controls.dob.errors?.dateInvalid">
+                          Age must be more than 14
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <label>Mobile Number</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        required=""
+                        placeholder="98******01"
+                        formControlName="mobile_no"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['mobile_no'].errors) ||
+                            (!branchForm.controls['mobile_no'].pristine &&
+                              branchForm.controls['mobile_no'].invalid)
+                        }"
+                      />
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted &&
+                            branchForm.controls.mobile_no.errors) ||
+                          (!branchForm.controls.mobile_no.pristine &&
+                            branchForm.controls.mobile_no.invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls.mobile_no.errors?.required">
+                          Mobile Number is required
+                        </div>
+                        <div *ngIf="branchForm.controls.mobile_no.errors?.pattern">
+                          Provide 10 digit contact number
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Country</label>
+                        <ng-select
+                        class="form-control form-ng-select"
+                        autocomplete="off"
+                        placeholder="Country"
+                        formControlName="country"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['country'].errors) ||
+                            (!branchForm.controls['country'].pristine &&
+                              branchForm.controls['country'].invalid)
+                        }"
+                      >
+                        <ng-option
+                          *ngFor="let country of countries"
+                          [value]="country.country_id"
+                          >{{ country?.name }}</ng-option
+                        >
+                      </ng-select>
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted &&
+                            branchForm.controls.country.errors) ||
+                          (!branchForm.controls.country.pristine &&
+                            branchForm.controls.country.invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls.country.errors?.required">
+                          Country is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Gender</label>
+                        <ng-select
+                        class="form-control form-ng-select"
+                        autocomplete="off"
+                        placeholder="Gender"
+                        formControlName="gender"
+                        [ngClass]="{
+                          'is-invalid':
+                            (isFormSubmitted &&
+                              branchForm.controls['gender'].errors) ||
+                            (!branchForm.controls['gender'].pristine &&
+                              branchForm.controls['gender'].invalid)
+                        }"
+                      >
+                        <ng-option *ngFor="let gen of gender" [value]="gen.id">{{
+                          gen.name
+                        }}</ng-option>
+                      </ng-select>
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="
+                          (isFormSubmitted &&
+                            branchForm.controls.gender.errors) ||
+                          (!branchForm.controls.gender.pristine &&
+                            branchForm.controls.gender.invalid)
+                        "
+                      >
+                        <div *ngIf="branchForm.controls.gender.errors?.required">
+                          Gender is required
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary float-right" type="button" *ngIf="uniqueId" (click)="edit()">{{ buttonName }}</button>
+                        <button class="btn btn-primary float-right" type="submit"*ngIf="!uniqueId">Submit</button>
+                    </div>
+                </div>
+              </form> -->
+            
+              <div class="row g-3 mt-3" *ngIf="uniqueId">
+                <div class="col-md-6">
+                  <div class="pb-0">
+                    <h5>Branch Level User List</h5>
+                  </div>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <button class="btn btn-primary btn-xs float-right" type="button"  title=""  (click)="addEmpAccount()">Add</button>
+                  </div>
+                </div>
+              <hr *ngIf="uniqueId"/>
+              <div class="row g-3" *ngIf="uniqueId">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                  <table class="display dataTables_wrapper no-footer table" id="basic-1">
+                    <thead>
+                      <tr>
+                         <th class="sorting_asc" scope="col" >Name</th>
+                        <th class="sorting_asc" scope="col" >Email</th>
+                        <th class="sorting_asc" scope="col" >Mobile No</th>
+                     
+                        <th class="sorting_asc" scope="col" >Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                       <tr class="odd" *ngFor="let user of empList">
+                         <td class="sorting_1">{{user?.name}}</td>
+                         <td class="sorting_1">{{user?.user_email}}</td>
+                         <td class="sorting_1">{{user?.user_phone}}</td>
+                         <td class="sorting_1 text-nowrap">
+                           <button class="btn btn-custom btn-xs mr-1" type="button" disabled data-original-title="btn btn-success  btn-xs" title="">Plan</button>
+                           <!-- <button class="btn btn-warning  btn-xs mr-1" type="button" disabled data-original-title="btn btn-warning  btn-xs" title="" >Edit</button> -->
+                           <button class="btn btn-primary btn-xs mr-1" type="button" data-original-title="btn btn-primary btn-xs" title="" (click)="viewSubAccount(user)">View</button>
+                           <button class="btn  btn-xs" [ngClass]="user?.status == 'blocked' ? 'btn-danger' : 'btn-success'" type="button"  title="" (click)="blockSubAccount(user)">{{user?.status | titlecase}}</button>
+                         </td>
+                       </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+             
+            </div>
+            </div>
+          </div>
+    </div>
+</div>

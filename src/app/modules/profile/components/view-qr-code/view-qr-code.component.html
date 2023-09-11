@@ -1,0 +1,12 @@
+<app-breadcrumb
+  [title]="type === 'event'? 'Event':'Profile'"
+  [active_item]="'Edit QR Code'"
+></app-breadcrumb>
+<div class="row">
+    <div class="col-md-12 backBtn">
+        <p><i class="icon-arrow-left" (click)="goBack()" routerLink='/user/profile' title="Go Back"></i></p>
+    </div>
+</div>
+<div class="profile-qr-code" *ngIf="iFrameUrl">
+    <iframe id="" class="" height="100%" width="100%" style="border: 0;" [src]="iFrameUrl"></iframe>
+</div>

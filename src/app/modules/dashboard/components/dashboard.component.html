@@ -1,0 +1,27 @@
+<app-breadcrumb
+  [title]="'Dashboard'"
+  [items]="['Dashboard']"
+  [active_item]="'Dashboard'"
+></app-breadcrumb>
+<div class="row">
+  <div class="col-xl-3 col-md-6 dash-xl-50">
+    <div class="card pb-0 o-hidden earning-card">
+      <div class="card-header earning-back"></div>
+      <div class="card-body p-0">
+        <div class="earning-content  mb-4" style="position: relative;">
+          <div *ngIf="individualProfile?.length !=0">
+            <img  class="img-fluid" src="../assets/images/avatar.jpg" alt=""><a>
+              <h4></h4>
+            </a>
+            <button class="btn btn-primary" type="button"  title="" routerLink="/user/profile">View Profile</button>
+         </div>
+         <div *ngIf="individualProfile?.length == 0">
+          <button class="btn btn-primary" type="button"  title="" (click)="addProfileId()">Add Profile</button>
+       </div>
+          <!-- <span>(Mon 15 - Sun 21)</span> -->
+          <!-- <h6>$573.67</h6> -->
+        <!-- <div class="resize-triggers"><div class="expand-trigger"><div style="width: 553px; height: 178px;"></div></div><div class="contract-trigger"></div></div></div> -->
+      </div>
+    </div>
+  </div>
+</div>

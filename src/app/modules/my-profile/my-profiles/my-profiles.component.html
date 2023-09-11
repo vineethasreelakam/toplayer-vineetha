@@ -1,0 +1,47 @@
+<div class="preview-wrap"  *ngIf="profileData" [ngStyle]="{ 'background-color': profileData.theme.bg_colour  }" id="myProfileDiv">
+
+  <div class="main-div"  >
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-div">
+              <button class="btn btn-pill btn-info follow-btn" type="button" (click)="backToApplication()">Back To Application</button>
+              <button class="btn btn-pill btn-info follow-btn" type="button" >Follow</button>
+              <!-- <button class="btn btn-pill btn-info qr-btn" type="button"  routerLink='/my-profile/qr-code'>View QR</button> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-div">
+              <i class="icon-search" (click)="searchProfile()"></i>
+              <i class="fa fa-share" (click)="myProfile()" ></i>
+              <!-- <i class="fa fa-download" (click)="export()"></i> -->
+            </div>
+          </div>
+        </div>
+        <div class="link-list">
+          <app-public-profile [linkData]="linkData" [profileData]="profileData"></app-public-profile>
+        </div>
+        <footer>
+          <p>SIGNEFIC.COM</p>
+        </footer>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <!-- <app-public-profile [linkData]="linkData" [profileData]="profileData"></app-public-profile> -->
+   
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-md-12"> -->
+      <!-- <div class="poweredBy">
+        <div>
+          <p>Powered By Signefic</p>
+        </div>
+      </div> -->
+    <!-- </div>
+  </div> -->
+ 
+  </div>

@@ -1,0 +1,52 @@
+.close{
+    border: none;
+    background: #fff;
+    font-size: 20px;
+}
+.modal-header{
+    border-color: #fff !important;
+}
+.qr-code{
+    img{
+        width: 30%;
+        cursor: pointer;
+    }
+    p{
+        color: var(--theme-deafult);
+    }
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+    ul{
+        display: flex;
+        padding: 0;
+        li img{
+            width: 35px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    }
+}
+.copy-link{
+    button{
+        width: 145px;
+    }
+    button:hover{
+        color: var(--theme-deafult);
+        background-color: #fff !important;
+    }
+    button:active{
+        color: var(--theme-deafult);
+        background-color: #fff !important;
+    }
+}
+.edit-qrCode{
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--theme-deafult);
+}
+.mb-5 {
+    margin-bottom: 3.5rem!important;
+}

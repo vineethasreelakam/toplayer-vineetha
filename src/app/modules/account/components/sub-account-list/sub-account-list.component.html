@@ -1,0 +1,52 @@
+<app-breadcrumb [title]="'Branch List'" [items]="['Sub Account']" [active_item]="'Branch List'"></app-breadcrumb>
+
+<div class="row">
+    <!-- Individual column searching (text inputs) Starts-->
+    <div class="col-sm-12">
+      <div class="card">
+        <!-- <div class="back-icon" [routerLink]="'/account/settings'">
+            <i class="icon-arrow-left" title="Back to settings"></i>
+        </div> -->
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-6"> <h5>Branch Level Account List</h5></div>
+            <div class="col-md-6 text-right"> <button class="btn btn-primary btn-xs" type="button"  title="" (click)="addSubAccount()">Add</button></div>
+          </div>
+         
+         </div>
+         <div class="card-body">
+            <div class="table-responsive product-table">
+                <form>
+               <table class="display dataTables_wrapper no-footer table" id="basic-1">
+                 <thead>
+                   <tr>
+                      <th class="sorting_asc" scope="col" >Name</th>
+                     <th class="sorting_asc" scope="col" >Email</th>
+                     <th class="sorting_asc" scope="col" >Mobile No</th>
+                  
+                     <th class="sorting_asc" scope="col" >Action</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                  
+                    <tr class="odd" *ngFor="let user of branchUserList">
+                      <td class="sorting_1">{{user?.name}}</td>
+                      <td class="sorting_1">{{user?.user_email}}</td>
+                      <td class="sorting_1">{{user?.user_phone}}</td>
+                      <td class="sorting_1 text-nowrap">
+                        <button class="btn btn-custom btn-xs" type="button" data-original-title="btn btn-success  btn-xs" title="">Plan</button>
+                        <!-- <button class="btn btn-warning  btn-xs" type="button" data-original-title="btn btn-warning  btn-xs" title="" disabled (click)="editSubAccount(user?.user_id);">Edit</button> -->
+                        <button class="btn btn-primary btn-xs" type="button" data-original-title="btn btn-primary btn-xs" title="" (click)="viewSubAccount(user);">View</button>
+                        <button class="btn  btn-xs" [ngClass]="user?.status == 'blocked' ? 'btn-danger' : 'btn-success'" type="button"  title="" (click)="blockSubAccount(user)">{{user?.status | titlecase}}</button>
+                      </td>
+                    </tr>
+                  
+                 </tbody>
+               </table>
+              
+             </form>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,121 @@
+<app-breadcrumb
+  [title]="'Connect'"
+  [items]="['Connect']"
+  [active_item]="subHead"
+></app-breadcrumb>
+
+
+<div class="container">
+
+ 
+
+  <div class="tab-wrap">
+
+    <!-- active tab on page load gets checked attribute -->
+    <input type="radio" id="tab1" name="tabGroup1" class="tab" checked (click)="tabChange('all')">
+    <label for="tab1">All Profiles</label>
+
+    <input type="radio" id="tab2" name="tabGroup1" class="tab" (click)="tabChange('my-following')">
+    <label for="tab2">My Following</label>
+
+    <!-- <input type="radio" id="tab3" name="tabGroup1" class="tab">
+    <label for="tab3">Long</label> -->
+
+    <div class="tab__content">
+      <div class="edit-profile">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive custom-scrollbar">
+                  <table class="table table-bordernone">
+                    <tbody>
+                      <tr *ngFor="let user of allProfiles">
+                        <td>
+                          <div class="media">
+                            <img
+                              class="img-fluid me-3 b-r-5"
+                              src="../assets/images/avtar/woman.png"
+                              alt=""
+                            />
+                            <div class="media-body">
+                              <!-- <a href="blog-single.html"> -->
+                                <h6>{{user?.name}} (Profile Id: {{user?.public_profile_id}})</h6>
+                                <!-- </a> -->
+                              <p>{{user?.bio}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <button class="btn btn-primary active ml-2" type="button" (click)="view(user)">
+                            View
+                          </button>
+                          &nbsp;
+                          <button class="btn btn-danger active" type="button" (click)="followProfile(user)">
+                            <span *ngIf="user?.follow_status === 1">Unfollow</span>
+                            <span *ngIf="user?.follow_status === 0">Follow</span>
+                          </button>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+       
+        </div>
+      </div>
+    </div>
+
+    <div class="tab__content">
+      <div class="edit-profile">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive custom-scrollbar">
+                  <table class="table table-bordernone">
+                    <tbody>
+                      <tr *ngFor="let user of myFollowing">
+                        <td>
+                          <div class="media">
+                            <img
+                              class="img-fluid me-3 b-r-5"
+                              src="../assets/images/avtar/woman.png"
+                              alt=""
+                            />
+                            <div class="media-body">
+                                <h6>{{user?.name}} (Profile Id: {{user?.public_profile_id}})</h6>
+                              <p>{{user?.bio}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <button class="btn btn-primary active ml-2" type="button" (click)="view(user)">
+                            View
+                          </button>
+                          &nbsp;
+                          <button class="btn btn-danger active" type="button" (click)="followProfile(user)">
+                            <span >Unfollow</span>
+                         
+                          </button>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

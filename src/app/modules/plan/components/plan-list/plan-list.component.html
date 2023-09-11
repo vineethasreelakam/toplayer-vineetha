@@ -1,0 +1,133 @@
+<app-breadcrumb [title]="'Plan'" [active_item]="'Plan'"></app-breadcrumb>
+<!-- <div class="container-fluid"> -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header pb-0">
+        <h5>Select Plan</h5>
+        <div class="form-group">
+          <div class="m-t-15 m-checkbox-inline custom-radio-ml">
+            <div class="form-check form-check-inline radio radio-primary">
+              <input
+                class="form-check-input"
+                id="radioinline1"
+                type="radio"
+                name="radio1"
+                value="year"
+                checked
+                (change)="changPeriod('year')"
+              />
+              <label class="form-check-label mb-0" for="radioinline1"
+                >Yearly</label
+              >
+            </div>
+            <div class="form-check form-check-inline radio radio-primary">
+              <input
+                class="form-check-input"
+                id="radioinline2"
+                type="radio"
+                name="radio1"
+                value="monthly"
+                (change)="changPeriod('monthly')"
+              />
+              <label class="form-check-label mb-0" for="radioinline2"
+                >Monthly</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pricing-content pricing-col">
+        <div class="row">
+          <!-- <ng-container *ngFor="let plan of plans"> -->
+          <ng-container *ngFor="let plan of plans; index as i;">
+            <div class="col-xl-3 col-sm-6 xl-50 box-col-6">
+              <div class="pricing-block card text-center" [ngClass]="{'active': isActive === i}" (click)="selectedPlan(plan,i)">
+                <div class="pricing-header">
+                  <h2>{{plan?.title}}</h2>
+                  <div class="price-box">
+                    <div>
+                      <h3>₹{{plan?.price}}</h3>
+                      <p>/{{planPeriodStats ?'Year': 'Month'}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pricing-list">
+                  <ul class="pricing-inner">
+                    <li>
+                      <h6>{{plan?.description}}</h6>
+                    </li>
+                    <!-- <li>
+                      <h6>2<span> Email Accounts</span></h6>
+                    </li>
+                    <li>
+                      <h6>2GB<span> Bandwidth</span></h6>
+                    </li> -->
+                    <!-- <li>
+                       <h6>2<span> Subdomains</span></h6>
+                     </li>
+                     <li>
+                       <h6>2<span> Domains</span></h6>
+                     </li> -->
+                  </ul>
+                  <!-- <button class="btn btn-primary btn-lg" type="button" data-original-title="btn btn-primary btn-lg" title="">Subscribe</button> -->
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="col-xl-12 mb-4">
+            <div class="d-flex justify-content-center">
+              <form
+              [formGroup]="promoCodeForm"
+            >
+              <div class="input-group" >
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  name="promoCode"
+                  placeholder="Enter Promo Code"
+                  formControlName="promo_code"
+                  [ngClass]="{
+                    'is-invalid':
+                      (isFormSubmitted && promoCodeForm.controls['promo_code'].errors) ||
+                      (!promoCodeForm.controls['promo_code'].pristine &&
+                      promoCodeForm.controls['promo_code'].invalid)
+                  }"
+                /><a class="btn btn-primary apply-btn" (click)="validatePromoCode()">Apply</a>
+                <div
+                class="invalid-feedback"
+                *ngIf="
+                  (isFormSubmitted && promoCodeForm.controls['promo_code'].errors) ||
+                  (!promoCodeForm.controls['promo_code'].pristine &&
+                  promoCodeForm.controls['promo_code'].invalid)
+                "
+              >
+                <div *ngIf="promoCodeForm.controls['promo_code'].errors?.required">
+                  Promo Code is required
+                </div>
+               
+              </div>
+              </div>
+              </form>
+            </div>
+
+            <div class="form-group text-center mt-4">
+              <button class="btn btn-primary btn-block" type="button" (click)="addPlan()">
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- comparison table -->
+          <h5>Comparison</h5>
+          <hr />
+          <div class="table-responsive">
+           <div [innerHTML]="metaTableData"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

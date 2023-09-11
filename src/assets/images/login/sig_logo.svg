@@ -1,0 +1,84 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862 246" width="862" height="246">
+	<title>New Project</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m104.08 82.11l0.29 76.28c-28.24 0.11-52.96-15.14-66.23-37.89 13.1-22.84 37.7-38.29 65.94-38.39z"/>
+		</clipPath>
+		<linearGradient id="g1" x1="162.4" y1="359.8" x2="-69.9" y2="119.3" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fdcf8b"/>
+			<stop offset="1" stop-color="#f4897a"/>
+		</linearGradient>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp2">
+			<path d="m104.08 82.11h66.25v76.28h-66.25z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp3">
+			<path d="m104.37 158.39l-0.29-76.28 66.25 37.83q-0.02 0.03-0.03 0.05c-13.1 22.85-37.7 38.29-65.93 38.4z"/>
+		</clipPath>
+		<linearGradient id="g2" x1="232.4" y1="158.4" x2="106.2" y2="158.9" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fefefe"/>
+			<stop offset=".5" stop-color="#fefefe"/>
+			<stop offset="1" stop-color="#201d1e"/>
+		</linearGradient>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp4">
+			<path d="m104.49 119.99h76.28v76.23h-76.28z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp5">
+			<path d="m104.49 158.39c28.23-0.11 52.83-15.55 65.92-38.4 6.54 11.2 10.31 24.22 10.36 38.11 0.06 13.87-3.62 26.89-10.05 38.12l-66.23-37.82z"/>
+		</clipPath>
+		<linearGradient id="g3" x1="198.8" y1="308.1" x2="59.6" y2="223.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fefefe"/>
+			<stop offset=".5" stop-color="#fefefe"/>
+			<stop offset="1" stop-color="#201d1e"/>
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #262626 } 
+		.t1 { font-size: 41px;fill: #7f7f7f;font-weight: 400;font-family: "SourceSansPro-Regular", "Source Sans Pro" } 
+		.s2 { fill: #2ad8b6 } 
+		.s3 { fill: url(#g1) } 
+		.s4 { fill: #3e5c9e } 
+		.s5 { fill: url(#g2) } 
+		.s6 { fill: url(#g3) } 
+	</style>
+	<g id="&lt;Group&gt;">
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Path&gt;" class="s0" d="m237.2 172.8q-10-4.3-15.7-12.3-5.8-7.9-6-18.8h25.5q0.5 7.3 5.2 11.5 4.6 4.3 12.8 4.3 8.3 0 13.1-4 4.7-4 4.7-10.4 0-5.3-3.2-8.7-3.2-3.4-8.1-5.3-4.8-2-13.3-4.4-11.5-3.4-18.8-6.7-7.2-3.3-12.4-10-5.1-6.7-5.1-17.9 0-10.5 5.2-18.3 5.3-7.8 14.8-12 9.5-4.2 21.7-4.2 18.4 0 29.8 8.9 11.5 9 12.7 24.9h-26.2q-0.3-6.1-5.2-10.1-4.8-4-12.8-4-6.9 0-11.1 3.6-4.1 3.6-4.1 10.3 0 4.8 3.1 7.9 3.1 3.2 7.8 5.1 4.7 2 13.2 4.5 11.5 3.4 18.8 6.8 7.3 3.4 12.6 10.2 5.2 6.8 5.2 17.8 0 9.5-4.9 17.7-4.9 8.1-14.4 13-9.5 4.8-22.6 4.8-12.4 0-22.3-4.2z"/>
+			<path id="&lt;Compound Path&gt;" class="s0" d="m313.4 66.6q-4.2-4-4.2-10 0-5.9 4.2-9.9 4.2-4 10.4-4 6.3 0 10.5 4 4.1 4 4.1 9.9 0 6-4.1 10-4.2 4-10.5 4-6.2 0-10.4-4zm22.1 109.2h-23.7v-94h23.7z"/>
+			<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m407.5 84.4q8 4.2 12.6 10.8v-13.4h23.9v94.7q0 13.1-5.2 23.3-5.3 10.3-15.8 16.3-10.6 6.1-25.5 6.1-20 0-32.8-9.4-12.9-9.3-14.6-25.4h23.6q1.9 6.4 8.1 10.2 6.2 3.9 15 3.9 10.4 0 16.8-6.2 6.5-6.2 6.5-18.8v-14.6q-4.6 6.6-12.7 11-8 4.4-18.4 4.4-11.9 0-21.7-6.1-9.9-6.1-15.5-17.2-5.7-11.1-5.7-25.5 0-14.3 5.7-25.3 5.6-11.1 15.4-17 9.8-6 21.8-6 10.5 0 18.5 4.2zm6.9 30.5q-3.3-6-8.8-9.2-5.6-3.2-12-3.2-6.4 0-11.8 3.1-5.4 3.1-8.7 9.1-3.4 6-3.4 14.1 0 8.2 3.4 14.4 3.3 6.1 8.8 9.4 5.5 3.3 11.7 3.2 6.4 0 12-3.1 5.5-3.2 8.8-9.2 3.3-6 3.3-14.3 0-8.4-3.3-14.3z"/>
+			<path id="&lt;Path&gt;" class="s0" d="m536.4 91q10.3 10.6 10.3 29.6v55.2h-23.7v-51.9q0-11.2-5.6-17.3-5.6-6-15.3-6-9.9 0-15.6 6-5.6 6.1-5.6 17.3v51.9h-23.8v-94h23.8v11.7q4.7-6.1 12.1-9.6 7.4-3.5 16.2-3.5 16.8 0 27.2 10.6z"/>
+			<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m649.3 135.9h-68.8q0.9 10.2 7.1 16 6.3 5.8 15.5 5.8 13.2 0 18.8-11.4h25.7q-4.1 13.6-15.7 22.3-11.5 8.7-28.3 8.7-13.6 0-24.4-6-10.7-6-16.8-17-6-11.1-6-25.5 0-14.6 5.9-25.6 6-11.1 16.7-17 10.7-6 24.6-6 13.4 0 24 5.8 10.6 5.8 16.5 16.4 5.8 10.6 5.8 24.4 0 5.1-0.6 9.1zm-24-15.9q-0.1-9.2-6.6-14.7-6.4-5.5-15.8-5.5-8.8 0-14.8 5.3-6.1 5.4-7.4 14.9z"/>
+			<path id="&lt;Path&gt;" class="s0" d="m707 101.3h-16.5v74.5h-24.1v-74.5h-10.7v-19.5h10.7v-4.8q0-17.3 9.9-25.4 9.8-8.2 29.7-7.7v20q-8.7-0.1-12.1 2.9-3.4 3.1-3.4 11.1v3.9h16.5z"/>
+			<path id="&lt;Compound Path&gt;" class="s0" d="m720.6 66.6q-4.1-4-4.1-10 0-5.9 4.1-9.9 4.2-4 10.5-4 6.3 0 10.4 4 4.2 4 4.2 9.9 0 6-4.2 10-4.1 4-10.4 4-6.3 0-10.5-4zm22.2 109.2h-23.8v-94h23.8z"/>
+			<path id="&lt;Path&gt;" class="s0" d="m759.3 103.2q5.9-10.9 16.4-16.9 10.6-6.1 24.1-6.1 17.5 0 29 8.8 11.4 8.7 15.3 24.5h-25.6q-2-6.1-6.9-9.6-4.8-3.5-11.9-3.5-10.2 0-16.2 7.4-5.9 7.4-5.9 21 0 13.4 5.9 20.8 6 7.4 16.2 7.4 14.4 0 18.8-12.9h25.6q-3.9 15.3-15.4 24.3-11.6 9-28.9 8.9-13.5 0-24.1-6-10.5-6-16.4-17-6-10.9-6-25.5 0-14.6 6-25.6z"/>
+		</g>
+		<text id="Connection Simplified
+" style="transform: matrix(1,0,0,1,478.907,227.139)" >
+			<tspan x="0" y="0" class="t1" dx="0 -1" >Co</tspan><tspan  y="0" class="t1" dx="0 -1" >nn</tspan><tspan  y="0" class="t1" dx="0 -1 -1 -1 -1" >ectio</tspan><tspan  y="0" class="t1" dx="0" >n</tspan><tspan  y="0" class="t1" dx="0 -1 -1" > Si</tspan><tspan  y="0" class="t1" dx="0 -1" >mp</tspan><tspan  y="0" class="t1" dx="0 -1 -1 -1 -1" >lifie</tspan><tspan  y="0" class="t1">d
+</tspan>
+		</text>
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="s2" d="m103.8 5.8c42.1-0.2 76.4 33.9 76.6 76 0 13.9-3.7 26.9-10.1 38.2-13.1 22.8-37.7 38.3-65.9 38.4l-0.3-76.3c-28.3 0.1-52.9 15.6-66 38.4-6.5-11.2-10.3-24.2-10.3-38.1-0.2-42.1 33.8-76.4 76-76.6z"/>
+			</g>
+			<g id="&lt;Clip Group&gt;" clip-path="url(#cp1)">
+				<path id="&lt;Path&gt;" class="s3" d="m70.1 191.6l-70.1-72.6 72.4-70 70.1 72.6z"/>
+			</g>
+			<path id="&lt;Path&gt;" class="s4" d="m38.1 120.5c13.1-22.8 37.7-38.3 66-38.4l0.3 76.3c28.2-0.1 52.8-15.6 65.9-38.4 6.5 11.2 10.3 24.2 10.4 38.1 0.1 42.1-33.9 76.4-76 76.6-42.2 0.1-76.5-33.9-76.6-76-0.1-13.9 3.6-26.9 10-38.2z"/>
+			<g id="&lt;Group&gt;" style="opacity: .3;mix-blend-mode: multiply">
+				<g id="&lt;Clip Group&gt;" clip-path="url(#cp2)">
+					<g id="&lt;Clip Group&gt;" clip-path="url(#cp3)">
+						<path id="&lt;Path&gt;" class="s5" d="m170.6 158.4l-66.5 0.2-0.3-76.5 66.5-0.2z"/>
+					</g>
+				</g>
+			</g>
+			<g id="&lt;Group&gt;" style="opacity: .3;mix-blend-mode: multiply">
+				<g id="&lt;Clip Group&gt;" clip-path="url(#cp4)">
+					<g id="&lt;Clip Group&gt;" clip-path="url(#cp5)">
+						<path id="&lt;Path&gt;" class="s6" d="m160.2 230.1l-89.6-54.5 54.5-89.5 89.6 54.5z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

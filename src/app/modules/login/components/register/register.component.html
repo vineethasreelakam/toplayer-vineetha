@@ -1,0 +1,55 @@
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <div class="col-12 p-0">
+      <div class="login-card">
+        <div class="theme-form login-form" [ngStyle]="{'width': (userLogicStats) ? '525px' : '725px'}">
+          <h4>Create your account</h4>
+          <h6>{{label}}</h6>
+
+          <div class="form-group text-center">
+            <div class="m-t-15 m-checkbox-inline custom-radio-ml">
+              <div class="form-check form-check-inline radio radio-primary">
+                <input
+                  class="form-check-input"
+                  id="radioinline1"
+                  type="radio"
+                  name="radio1"
+                  value="individual"
+                  checked
+                  (change)="checkBoxChange($event)"
+                />
+                <label class="form-check-label mb-0" for="radioinline1"
+                  >Individual</label
+                >
+              </div>
+              <div class="form-check form-check-inline radio radio-primary">
+                <input
+                  class="form-check-input"
+                  id="radioinline2"
+                  type="radio"
+                  name="radio1"
+                  value="business"
+                  (change)="checkBoxChange($event)"
+                />
+                <label class="form-check-label mb-0" for="radioinline2"
+                  >Business</label
+                >
+              </div>
+            </div>
+          </div>
+          <!-- individual -->
+          <app-individual-form [hidden]="!userLogicStats" [countries]="countries" [gender]="gender" [formRest]="formRest" [urlParams]="urlParams"></app-individual-form>
+
+          <!-- business -->
+          <app-business-form [hidden]="userLogicStats" [countries]="countries" [gender]="gender" [formRest]="formRest" [urlParams]="urlParams"></app-business-form>
+
+          <p>
+            Already have an account?<a class="ms-2 a-tag-common" (click)="signIn()"
+              >Sign in</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

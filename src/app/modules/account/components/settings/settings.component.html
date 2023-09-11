@@ -1,0 +1,36 @@
+
+<app-breadcrumb [title]="'Settings'" [items]="['Account']" [active_item]="'Settings'"></app-breadcrumb>
+<!-- <div class="container-fluid"> -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header pb-0">
+        <h5>Settings</h5>
+       
+      </div>
+      <div class="card-body pricing-content pricing-col">
+        <div class="row">
+          <ng-container *ngFor="let setting of settingOptions">
+          <div class="col-md-4">
+            <div class="card social-widget-card" [routerLink]='setting.url'>
+              <div class="card-body">
+                <div class="media">
+                  <div class="social-font"><i class="{{setting.icon}}"></i></div>
+                  <div class="media-body">
+                    <h5>{{setting.name}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </ng-container>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
+
+
+

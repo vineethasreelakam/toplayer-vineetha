@@ -1,0 +1,18 @@
+.preview-wrap {
+    // width: 310px;
+    height: auto;
+    min-height: 650px;
+    padding: 16px;
+    display: block;
+    margin: 0 auto;
+    // border: 15px solid #000;
+    // border-radius: 55px;
+    transform-origin: top left;
+    inset: 0px;
+    z-index: -1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(210, 232, 35);
+    background-image: url("https://assets.production.linktr.ee/profile-preview/latest/images/background-elements/poppy/background-mobile-hires.png");
+}

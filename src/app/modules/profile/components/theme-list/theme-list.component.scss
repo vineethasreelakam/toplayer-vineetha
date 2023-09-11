@@ -1,0 +1,141 @@
+
+.preview-wrap {
+    width: 245px;
+    height: auto;
+    min-height: 475px;
+    padding: 16px;
+    display: block;
+    margin: 0 auto;
+    border: 15px solid #000;
+    border-radius: 55px;
+    transform-origin: top left;
+    inset: 0px;
+    z-index: -1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-color: rgb(210, 232, 35);
+    // background-image: url("https://assets.production.linktr.ee/profile-preview/latest/images/background-elements/poppy/background-mobile-hires.png");
+    cursor: pointer;
+  }
+  .preview-wrap:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .active-theme{
+    // border: 15px solid #c7d0e5 !important;
+    opacity: 0.7;
+  }
+
+.no-image {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    background: rgb(30, 35, 48);
+    color: rgb(255, 255, 255);
+    border-radius: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    span {
+      font-weight: 600;
+      font-size: 32px;
+    }
+  }
+  
+  .img-100 {
+    width: 100px;
+  }
+  .prodile-details p {
+    margin-bottom: 0;
+  }
+  .prodile-details p:nth-child(1) {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .link-listing {
+    .link-item {
+      z-index: 0;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: none;
+      background-color: rgb(31, 35, 46);
+      color: rgb(255, 255, 255);
+      transition: transform 0.15s cubic-bezier(0, 0.2, 0.5, 3) 0s;
+      border-radius: 30px;
+  
+      a {
+        hyphens: auto;
+        white-space: normal;
+        background: none;
+        color: inherit;
+        transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+          border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+          transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+          background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        padding-left: 66px;
+        padding-right: 66px;
+        margin: 0px;
+        border: none;
+        font-family: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        text-align: center;
+        cursor: pointer;
+        background: none;
+        text-decoration: none;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        height: auto;
+        min-height: 35px;
+        position: relative;
+        padding: 10px 20px;
+        width: 100%;
+        appearance: none;
+        box-sizing: border-box;
+        vertical-align: middle;
+        .link-icon {
+          background: transparent !important;
+          overflow: hidden;
+          position: absolute;
+          top: 60%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          border-radius: 50%;
+          // -webkit-mask-image: url(https://assets.production.linktr.ee/515859c…/icons/tabler-icons/menu-2.svg);
+          // -webkit-mask-size: 100%;
+          width: 32px;
+          height: 32px;
+          left: 8px;
+        }
+        p {
+          padding: 0px;
+          margin: 0 20px;
+          line-height: 1.5;
+          width: 100%;
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  .close{
+    border: none;
+    background: #fff;
+    font-size: 20px;
+}
+.text-right{
+  text-align: right;
+}

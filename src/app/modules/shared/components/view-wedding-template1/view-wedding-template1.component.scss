@@ -1,0 +1,1216 @@
+#indicator{
+
+    position: fixed;
+
+    left: 0;
+
+    right: 0;
+
+    top:0;
+
+    bottom: 0px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.indict-inn {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0; 
+margin: auto;
+border: 10px solid grey;
+border-radius: 50%;
+border-top: 10px solid red;
+width: 100px;
+height: 100px;
+animation: spin 1s linear infinite;
+}
+@keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+
+/*      */
+
+
+@font-face {
+font-family: 'DIN Alternate Bold';
+src: url('../../../../../assets/fonts/wedding/fonts/wedding1font/DINAlternate-Bold.woff') format('woff');
+font-style: normal;
+font-weight: normal;
+}
+
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1rem;
+
+font-family: 'Forum', cursive !important;
+}
+
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/***************************/
+
+
+html{
+
+font-size: 16px;
+
+scroll-behavior: smooth;
+}
+
+body{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/background.png);
+
+background-size: cover;
+
+background-position: center;
+
+background-repeat: no-repeat;
+}
+
+.row{
+
+--bs-gutter-x: 30px;
+}
+
+.row.zerogutter{
+
+--bs-gutter-x: 0px;
+}
+
+
+p{	
+
+font-size: 16px;
+
+line-height: 25px;
+
+color: #ffffff;
+
+font-weight: 300;
+}
+
+h1{
+
+font-size: 140px;
+
+line-height: 120px;
+
+color: #ffffff;
+}
+
+h2{
+
+position: relative;
+
+font-size: 50px;
+
+line-height: 55px;
+
+color: #ffffff;
+
+text-transform: uppercase;
+}
+
+
+h3{
+
+width: 100%;
+
+font-size: 36px;
+
+line-height: 36px;
+
+color: #ffffff;
+
+text-transform: uppercase;
+
+font-family: 'DIN Alternate Bold';
+}
+
+h4{
+
+width: 100%;
+
+font-size: 30px;
+
+line-height: 30px;
+
+color: #ffffff;
+}
+
+h5{
+
+font-size: 26px;
+
+line-height: 26px;
+
+font-weight: 500;
+
+color: #ffffff;
+
+text-transform: uppercase;
+}
+
+h6{
+
+font-size: 16px;
+
+line-height: 18px;
+
+font-weight: 700;
+
+margin-bottom: 10px;
+
+color: #ffffff;
+}
+
+button:focus,
+.btn:focus{
+
+outline: none;
+
+box-shadow: none;
+
+border: none;
+}
+
+a, .btn{
+
+font-size: 14px;
+
+text-decoration: none;
+}
+
+a:hover{
+
+text-decoration: none;
+
+color: #C50028;
+}
+
+i{
+
+font-style: italic;
+}
+
+
+.pageloader {
+
+position: fixed;
+
+left: 0px;
+
+top: 0px;
+
+width: 100%;
+
+height: 100%;
+
+z-index: 9999;
+
+//background: url(../../../../../images/page-loader.gif) 50% 50% no-repeat rgb(249, 249, 249);
+
+opacity: .8;
+
+display: none;
+
+}
+
+/*****************/
+
+.wrapper{
+
+float: left;
+
+width: 100%;
+}
+
+.inner-wrapper{
+
+float: left;
+
+width: 100%;
+}
+
+/**/
+
+header{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+/*header:before{
+
+content: "";
+
+display: block;
+
+position: absolute;
+
+left: 0;
+
+top: 0;
+
+width: 160px;
+
+height: 205px;
+
+background-image: url(../images/leaf.png);
+
+background-size: contain;
+
+background-position: center;
+
+background-repeat: no-repeat;
+}*/
+
+/*header:after{
+
+content: "";
+
+display: block;
+
+position: absolute;
+
+right: 70px;
+
+top: 90px;
+
+width: 130px;
+
+height: 130px;
+
+background-image: url(../images/flower.png);
+
+background-size: contain;
+
+background-position: center;
+
+background-repeat: no-repeat;
+}*/
+
+header ul.link-head{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+text-align: right;
+}
+
+header .link-head li{
+
+display: inline-block;
+
+text-align: center;
+
+padding: 15px 10px 0px 10px;
+}
+
+header .link-head li .btn{
+
+font-size: 18px;
+
+font-family: 'DIN Alternate Bold';
+
+color: #ffffff;
+
+text-transform: uppercase;
+
+border: none !important;
+}
+
+header .fnctn-details{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+header .fnctn-details .date-time{
+
+position: relative;
+
+float: left;
+
+width: fit-content;
+
+text-align: right;
+
+padding-right: 30px;
+
+/*	margin-left: 40px;*/
+}
+
+
+header .fnctn-details .counter-class{
+
+position: relative;
+
+float: left;
+
+width: fit-content;
+}
+
+header .fnctn-details .counter-class:before{
+
+content: "";
+
+display: block;
+
+position: absolute;
+
+left: 0;
+
+top: 5%;
+
+width: 1px;
+
+height: 95%;
+
+background-color: #ffffff;
+}
+
+header .fnctn-details .counter-class div{
+
+position: relative;
+
+float: left;
+
+width: min-content;
+
+text-align: center;
+
+color: #ffffff;
+
+text-transform: uppercase;
+}
+
+header .fnctn-details .counter-class div.main{
+
+font-size: 50px;
+
+line-height: 55px;
+
+padding: 0px 30px;
+}
+
+header .fnctn-details .counter-class div.sub{
+
+font-size: 30px;
+
+line-height: 35px;
+
+transform: translateY(25%);
+
+padding-right: 30px;
+}
+
+/**/
+
+
+section.middle{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+padding-top: 35px;
+}
+
+section.middle figure{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+
+section.middle figure .figbox{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+
+section.middle figure span.image{
+
+position: absolute;
+
+left: 50%;
+
+top: 49%;
+
+transform: translate(-50% , -50%);
+
+width: 86%;
+
+padding-top: 86%;
+
+background-color: #333;
+
+border-radius: 50%;
+
+overflow: hidden;
+
+background-position: center;
+
+background-size: cover;
+
+background-repeat: no-repeat;
+}
+
+section.middle figure span.frame{
+
+position: relative;
+
+float: right;
+
+width: 100%;
+
+padding-top: 100%;
+
+overflow: hidden;
+
+background-position: center;
+
+background-size: contain;
+
+background-repeat: no-repeat;
+}
+
+
+section.middle article{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+text-align: center;
+
+padding-top: 15%;
+
+padding-left: 15%;
+}
+
+section.middle article h1{
+
+font-family: 'The Nautigal', cursive;
+}
+
+section.middle article h3{
+
+margin-top: 25%;
+}
+
+section.middle article h4{
+
+margin-top: 20%;
+}
+
+section.middle article a{
+
+color: #ffffff;
+
+font-size: 16px;
+
+line-height: 16px;
+
+font-family: 'DIN Alternate Bold';
+
+text-transform: uppercase;
+
+border: 1px solid #ffffff;
+
+padding: 9px 10px 7px 10px;
+
+padding-left: 32px;
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/location-w.png);
+
+background-size: 16px;
+
+background-position: 10px 8px;
+
+background-repeat: no-repeat;
+
+margin-top: 15px;
+}
+
+section.middle article a:hover,
+section.middle article a:focus,
+section.middle article a:focus-visible{
+
+background-color: #ffffff;;
+
+color: #404040;
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/location-g.png);
+}
+
+section.middle article a:focus{
+
+border: 1px solid #404040;
+}
+
+/**/
+
+section.gallery{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+padding: 40px 0px;
+
+text-align: center;
+}
+
+section.gallery figure{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+border-radius: 20%;
+
+overflow: hidden;
+}
+
+section.gallery figure img{
+
+width: 100%;
+}
+
+section.gallery figure.one{
+
+margin-top: 15%;
+}
+
+section.gallery figure.three{
+
+margin-top: 30%;
+}
+
+section.gallery a{
+
+background-color: #404040;
+
+color: #fff;
+
+font-size: 12px;
+
+line-height: 12px;
+
+font-family: 'DIN Alternate Bold';
+
+text-transform: uppercase;
+
+padding: 10px 20px 10px 20px;
+
+border: 1px solid #404040;
+
+border-radius: 15px;
+
+margin-top: 15px;
+
+min-width: 120px;
+}
+
+section.gallery a:hover,
+section.gallery a:focus,
+section.gallery a:focus-visible{
+
+background-color: #ffffff;
+
+color: #404040;
+}
+
+/**/
+
+
+section.videosec{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+margin: 15px 0px;
+
+padding-top: 40%;
+
+text-align: center;
+}
+
+section.videosec .video{
+
+width: 46%;
+
+height: 65%; 
+
+/*	640*360 56.25%*/
+
+position: absolute;
+
+left: 50%;
+
+top: 50%;
+
+transform: translate(-50% , -50%);
+}
+
+
+section.videosec .video iframe{
+
+width: 100%;
+
+height: 100%;
+}
+
+
+/**/
+
+
+section.plancntct{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+
+section.plancntct h4{
+
+text-transform: uppercase;
+
+margin-bottom: 35px;
+}
+
+section.plancntct .plan{
+
+position: relative;
+
+float: left;
+
+width: 50%;
+
+text-align: center;
+}
+
+section.plancntct .plan ul{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+section.plancntct .plan ul li{
+
+display: inline-block;
+
+position: relative;
+
+width: 65px;
+
+height: 45px;
+
+margin: 0px 15px;
+
+border: 1px solid #ffffff;
+
+border-radius: 12px;
+
+overflow: hidden;
+}
+
+
+section.plancntct .plan ul li input{
+
+display: inline-block;
+
+float: left;
+
+height: 100%;
+
+width: 100%;
+
+font-family: 'DIN Alternate Bold';
+
+font-size: 16px;
+
+line-height: 43px;
+
+text-align: center;
+
+text-transform: uppercase;
+}
+
+section.plancntct .plan ul li input[type="radio"]:checked,
+section.plancntct .plan ul li input[type="radio"]:not(:checked){
+
+display: inline-block;
+
+position: relative;
+
+cursor: pointer;
+}
+
+section.plancntct .plan ul li input[type="radio"]:checked:after,
+section.plancntct .plan ul li input[type="radio"]:not(:checked):after{
+
+content: '';
+
+position: absolute;
+
+left: 0;
+
+top: 0;
+
+width: 100%;
+
+height: 100%;
+
+background-color: #ffffff;
+
+color: #d4873c;
+}
+
+section.plancntct .plan ul li input[type="radio"]:checked :before,
+section.plancntct .plan ul li input[type="radio"]:not(:checked):before{
+
+content: '';
+
+position: absolute;
+
+width: 100%;
+
+height: 100%;
+
+top: 0px;
+
+left: 0px;
+
+background-color: #d4873c;
+
+color: #ffffff;
+}
+
+section.plancntct .plan ul li:first-child input[type="radio"]:checked :before,
+section.plancntct .plan ul li:first-child input[type="radio"]:not(:checked):before,
+section.plancntct .plan ul li:first-child input[type="radio"]:checked:after,
+section.plancntct .plan ul li:first-child input[type="radio"]:not(:checked):after{
+
+content: "Yes";
+}
+
+section.plancntct .plan ul li:last-child input[type="radio"]:checked :before,
+section.plancntct .plan ul li:last-child input[type="radio"]:not(:checked):before,
+section.plancntct .plan ul li:last-child input[type="radio"]:checked:after,
+section.plancntct .plan ul li:last-child input[type="radio"]:not(:checked):after{
+
+content: "No";
+}
+
+section.plancntct .plan ul li input[type="radio"]:not(:checked):after{
+
+opacity: 0;
+
+-webkit-transform: scale(0);
+-moz-transform: scale(0);
+-o-transform: scale(0);
+-ms-transform: scale(0);
+transform: scale(0);
+}
+section.plancntct .plan ul li input[type="radio"]:checked:after{
+
+opacity: 1;
+
+-webkit-transform: scale(1);
+-moz-transform: scale(1);
+-o-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1);
+}
+
+section.plancntct .contact{
+
+position: relative;
+
+float: left;
+
+width: 30%;
+
+text-align: center;
+}
+
+section.plancntct .contact ul{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+}
+
+section.plancntct .contact ul li{
+
+display: inline-block;
+
+position: relative;
+
+width: 100px;
+
+margin: 0px 15px;
+}
+
+section.plancntct .contact ul li .btn{
+
+padding: 0px;
+}
+
+section.plancntct .contact ul li img{
+
+width: 24px;
+
+margin-bottom: 15px;
+}
+
+section.plancntct .contact ul li span{
+
+display: block;
+
+width: 100%;
+
+color: #ffffff;
+
+font-size: 16px;
+
+line-height: 16px;
+
+font-family: 'DIN Alternate Bold';
+
+text-transform: uppercase;
+}
+
+
+/**/
+
+footer{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+padding-top: 20%;
+
+padding-bottom: 5%;
+
+/*	background-image: url(../images/foot-image.png);*/
+
+background-position: right bottom;
+
+background-size: 30%;
+
+background-repeat: no-repeat;
+
+text-align: center;
+}
+
+footer h4{
+
+text-transform: uppercase;
+}
+
+footer .btn{
+
+background-color: #404040;
+
+color: #fff;
+
+font-size: 12px;
+
+line-height: 12px;
+
+font-family: 'DIN Alternate Bold';
+
+text-transform: uppercase;
+
+padding: 10px 20px 10px 20px;
+
+border: 1px solid #404040;
+
+border-radius: 15px;
+
+margin-top: 15px;
+
+min-width: 120px;
+}
+
+footer .btn:hover,
+footer .btn:focus,
+footer .btn:focus-visible{
+
+background-color: #ffffff;
+
+color: #404040;
+}
+
+/**/
+
+.modal .modal-header{
+
+border: none;
+}
+
+.modal .modal-header .btn-close{
+
+background-size: 14px;
+}
+
+.modal .modal-header .btn-close:focus{
+
+outline: none;
+
+box-shadow: none;
+
+border: none;
+}
+
+.modal .modal-body{
+
+text-align: center;
+
+font-family: 'DIN Alternate Bold';
+}
+
+.modal .modal-body button{
+
+max-width: 150px;
+
+background-color: transparent;
+
+border: 0px;
+
+padding: 0px;
+}
+
+.modal .modal-body button img{
+
+width: 100%;
+}
+
+.modal .modal-body p{
+
+color: blue;
+
+margin-top: 10px;
+}
+
+.modal .modal-body ul{
+
+position: relative;
+
+float: left;
+
+width: 100%;
+
+text-align: center;
+
+margin-top: 25px;
+
+}
+
+.modal .modal-body ul li{
+
+display: inline-block;
+
+margin: 0px 3px;
+}
+
+.modal .modal-body ul li .btn{
+
+width: 40px;
+
+height: 40px;
+
+border-radius: 50%;
+
+background-position: center;
+
+background-size: 24px;
+
+background-repeat: no-repeat;
+
+padding: 0px;
+
+border: none !important;
+}
+
+.modal .modal-body ul li .facebook-btn{
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/facebook.png);
+
+background-color: #3b5997;
+}
+
+.modal .modal-body ul li .twitter-btn{
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/twitter.png);
+
+background-color: #00aaf4;
+}
+
+.modal .modal-body ul li .linkedin-btn{
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/linkedin.png);
+
+background-color: #0777b9;
+}
+
+.modal .modal-body ul li .whatsapp-btn{
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/whatsapp.png);
+
+background-color: #31a21f;
+}
+
+.modal .modal-body ul li .mail-btn{
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/mail.png);
+
+background-color: #000000;
+}
+
+.modal .modal-body button.copy-btn{
+
+font-size: 15px;
+
+line-height: 15px;
+
+color: #0078ad;
+
+padding: 10px 15px;
+
+padding-left: 40px;
+
+background-image: url(../../../../../assets/images/wedding/wedding1image/copy.png);
+
+background-position: 15px;
+
+background-size: 16px;
+
+background-repeat: no-repeat;
+
+border: 1px solid #0078ad;
+
+text-transform: uppercase;
+
+margin-top: 25px;
+
+margin-bottom: 50px;
+}
+
+
+.main-div{
+
+    position: relative;
+    
+    float: left;
+    
+    width: 100%;
+    
+    background-image: url(../../../../../assets/images/wedding/wedding1image/background.png);
+    
+    background-size: cover;
+    
+    background-position: center;
+    
+    background-repeat: no-repeat;
+    }

@@ -1,0 +1,571 @@
+<form [formGroup]="businessForm">
+  <div class="row">
+
+    <!-- bussines -->
+   
+    <div class="col-md-6">
+      <h5 class="title-h4">Business Details</h5>
+      <hr/>
+      <div class="form-group">
+        <label>Business Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa fa-suitcase"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="Business Name"
+            formControlName="business_name"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_name'].errors) ||
+                (!businessForm.controls['business_name'].pristine &&
+                  businessForm.controls['business_name'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_name.errors) ||
+              (!businessForm.controls.business_name.pristine &&
+                businessForm.controls.business_name.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.business_name.errors?.required">
+              Business name is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business Email Address</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-email"></i></span>
+          <input
+            class="form-control"
+            type="email"
+            required=""
+            formControlName="business_email"
+            placeholder="test@gmail.com"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_email'].errors) ||
+                (!businessForm.controls['business_email'].pristine &&
+                  businessForm.controls['business_email'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls['business_email'].errors) ||
+              (!businessForm.controls['business_email'].pristine &&
+                businessForm.controls['business_email'].invalid)
+            "
+          >
+            <div
+              *ngIf="businessForm.controls['business_email'].errors?.required"
+            >
+              Business Email Address is required
+            </div>
+            <div
+              *ngIf="businessForm.controls['business_email']?.errors?.pattern"
+            >
+              Business Enter valid email
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address 1</label>
+        <div class="input-group">
+          <span class="input-group-text"
+            ><i class="icon-location-pin"></i
+          ></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="Address 1"
+            formControlName="business_address_1"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_address_1'].errors) ||
+                (!businessForm.controls['business_address_1'].pristine &&
+                  businessForm.controls['business_address_1'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_address_1.errors) ||
+              (!businessForm.controls.business_address_1.pristine &&
+                businessForm.controls.business_address_1.invalid)
+            "
+          >
+            <div
+              *ngIf="businessForm.controls.business_address_1.errors?.required"
+            >
+              Address 1 is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address 2</label>
+        <div class="input-group">
+          <span class="input-group-text"
+            ><i class="icon-location-pin"></i
+          ></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="Address 2"
+            formControlName="business_address_2"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_address_2'].errors) ||
+                (!businessForm.controls['business_address_2'].pristine &&
+                  businessForm.controls['business_address_2'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_address_2.errors) ||
+              (!businessForm.controls.business_address_2.pristine &&
+                businessForm.controls.business_address_2.invalid)
+            "
+          >
+            <div
+              *ngIf="businessForm.controls.business_address_2.errors?.required"
+            >
+              Address 2 is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa fa-building-o"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="City"
+            formControlName="business_city"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_city'].errors) ||
+                (!businessForm.controls['business_city'].pristine &&
+                  businessForm.controls['business_city'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_city.errors) ||
+              (!businessForm.controls.business_city.pristine &&
+                businessForm.controls.business_city.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.business_city.errors?.required">
+              City is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business Country</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-world"></i></span>
+          <ng-select
+            class="form-control form-ng-select"
+            placeholder="Country"
+            formControlName="business_country"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_country'].errors) ||
+                (!businessForm.controls['business_country'].pristine &&
+                  businessForm.controls['business_country'].invalid)
+            }"
+          >
+            <ng-option
+              *ngFor="let country of countries"
+              [value]="country.name"
+              >{{ country?.name }}</ng-option
+            >
+          </ng-select>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_country.errors) ||
+              (!businessForm.controls.business_country.pristine &&
+                businessForm.controls.business_country.invalid)
+            "
+          >
+            <div
+              *ngIf="businessForm.controls.business_country.errors?.required"
+            >
+              Business Country is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Contact</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-mobile"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="98******01"
+            formControlName="business_contact"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['business_contact'].errors) ||
+                (!businessForm.controls['business_contact'].pristine &&
+                  businessForm.controls['business_contact'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.business_contact.errors) ||
+              (!businessForm.controls.business_contact.pristine &&
+                businessForm.controls.business_contact.invalid)
+            "
+          >
+            <div
+              *ngIf="businessForm.controls.business_contact.errors?.required"
+            >
+              Contact is required
+            </div>
+            <div *ngIf="businessForm.controls.business_contact.errors?.pattern">
+              Provide 10 digit contact number
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- user -->
+   
+    <div class="col-md-6">
+      <h5 class="title-h4">Personal Details</h5>
+      <hr/>
+      <div class="form-group">
+        <label>First Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-user"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="First Name"
+            formControlName="first_name"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['first_name'].errors) ||
+                (!businessForm.controls['first_name'].pristine &&
+                  businessForm.controls['first_name'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted && businessForm.controls.first_name.errors) ||
+              (!businessForm.controls.first_name.pristine &&
+                businessForm.controls.first_name.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.first_name.errors?.required">
+              First Name is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-user"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="Last Name"
+            formControlName="last_name"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted && businessForm.controls['last_name'].errors) ||
+                (!businessForm.controls['last_name'].pristine &&
+                businessForm.controls['last_name'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted && businessForm.controls.last_name.errors) ||
+              (!businessForm.controls.last_name.pristine &&
+              businessForm.controls.last_name.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.last_name.errors?.required">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-email"></i></span>
+          <input
+            class="form-control"
+            type="email"
+            required=""
+            formControlName="email"
+            placeholder="test@gmail.com"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['email'].errors) ||
+                (!businessForm.controls['email'].pristine &&
+                  businessForm.controls['email'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls['email'].errors) ||
+              (!businessForm.controls['email'].pristine &&
+                businessForm.controls['email'].invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls['email'].errors?.required">
+              Email Address is required
+            </div>
+            <div *ngIf="businessForm.controls['email']?.errors?.pattern">
+              Enter valid email
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>DOB</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-calendar"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="DD/MM/YYYY"
+            bsDatepicker
+            [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+            formControlName="dob"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['dob'].errors) ||
+                (!businessForm.controls['dob'].pristine &&
+                  businessForm.controls['dob'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted && businessForm.controls.dob.errors) ||
+              (!businessForm.controls.dob.pristine &&
+                businessForm.controls.dob.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.dob.errors?.required">
+              Date of birth is required
+            </div>
+            <div *ngIf="businessForm.controls.dob.errors?.dateInvalid">
+              Age must be more than 14
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-mobile"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            required=""
+            placeholder="98******01"
+            formControlName="mobile_no"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['mobile_no'].errors) ||
+                (!businessForm.controls['mobile_no'].pristine &&
+                  businessForm.controls['mobile_no'].invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.mobile_no.errors) ||
+              (!businessForm.controls.mobile_no.pristine &&
+                businessForm.controls.mobile_no.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.mobile_no.errors?.required">
+              Mobile Number is required
+            </div>
+            <div *ngIf="businessForm.controls.mobile_no.errors?.pattern">
+              Provide 10 digit contact number
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-world"></i></span>
+          <ng-select
+            class="form-control form-ng-select"
+            placeholder="Country"
+            formControlName="country"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['country'].errors) ||
+                (!businessForm.controls['country'].pristine &&
+                  businessForm.controls['country'].invalid)
+            }"
+          >
+            <ng-option
+              *ngFor="let country of countries"
+              [value]="country.country_id"
+              >{{ country?.name }}</ng-option
+            >
+          </ng-select>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.country.errors) ||
+              (!businessForm.controls.country.pristine &&
+                businessForm.controls.country.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.country.errors?.required">
+              Country is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-user"></i></span>
+          <ng-select
+            class="form-control form-ng-select"
+            placeholder="Gender"
+            formControlName="gender"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls['gender'].errors) ||
+                (!businessForm.controls['gender'].pristine &&
+                  businessForm.controls['gender'].invalid)
+            }"
+          >
+            <ng-option *ngFor="let gen of gender" [value]="gen.id">{{
+              gen.name
+            }}</ng-option>
+          </ng-select>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.gender.errors) ||
+              (!businessForm.controls.gender.pristine &&
+                businessForm.controls.gender.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.gender.errors?.required">
+              Gender is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password <span class="required-asterisk">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="icon-lock"></i></span>
+          <input
+            class="form-control"
+            type="password"
+            name="login[password]"
+            [type]="show ? 'text' : 'password'"
+            required=""
+            placeholder="*********"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid':
+                (isbusinessFormSubmitted &&
+                  businessForm.controls.password.errors) ||
+                (!businessForm.controls.password.pristine &&
+                  businessForm.controls.password.invalid)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              (isbusinessFormSubmitted &&
+                businessForm.controls.password.errors) ||
+              (!businessForm.controls.password.pristine &&
+                businessForm.controls.password.invalid)
+            "
+          >
+            <div *ngIf="businessForm.controls.password.errors?.required">
+              Password is required
+            </div>
+          </div>
+          <div class="show-hide" (click)="showPassword()" *ngIf="!show">
+            <span class="show"></span>
+          </div>
+          <div class="show-hide" (click)="showPassword()" *ngIf="show">
+            <span class="Hide"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+  <!--  -->
+</form>
+<div class="form-group">
+  <button
+    class="btn btn-primary btn-block"
+    type="submit"
+    (click)="sumbitHandler()"
+  >
+    Create Account
+  </button>
+</div>

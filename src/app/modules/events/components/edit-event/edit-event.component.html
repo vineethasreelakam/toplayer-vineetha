@@ -1,0 +1,87 @@
+<app-breadcrumb
+  [title]="'Event'"
+  [active_item]="'Create Event'"
+></app-breadcrumb>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="mb-3 m-form__group">
+      <label>Select Event</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="icon-calendar"></i></span>
+        <ng-select
+          class="form-control form-ng-select custom-ng-select"
+          autocomplete="off"
+          placeholder="Select Event"
+          name="event"
+          (change)=" selectedEvent($event)"
+        >
+          <ng-option
+            *ngFor="let event of events"
+            [value]="event.profile_id"
+            >{{ event?.name }}</ng-option
+          >
+        </ng-select>
+        <div class="event-actions">
+          <span class="view-event btn btn-primary btn-block"  (click)="addEvent()" ><a>Add Event</a></span>
+          <!-- <i class="icon-pencil-alt" title="Edit Event" (click)="editEvent()"></i>
+          <i class="icon-trash" title="Delete Event" (click)="deleteEvent()"></i> -->
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+<!--  -->
+<div class="container" *ngIf="profileID">
+
+  <div class="tab-wrap">
+
+    <input type="radio" id="tab1" name="tabGroup1" class="tab" checked (click)="tabChange('event')">
+    <label for="tab1">Event</label>
+
+    <input type="radio" id="tab2" name="tabGroup1" class="tab" (click)="tabChange('appearance')">
+    <label for="tab2">Appearance</label>
+
+    <div class="tab__content" >
+      <div class="edit-profile" *ngIf="tabType==='event'">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header pb-0">
+                <h4 class="card-title mb-0">Event Link <span class="view-event" style="margin: 0 15px;" *ngIf="profileID" (click)="viewEvent()" target="_blank"><a>View Event</a></span></h4>
+              </div>
+              <div class="card-body">
+               
+                <!-- <app-add-link (emitService)="getLinkData($event)" (deleteLinkService)="deleteLink($event)" [buttonDisable]="!profileID" [linkTypes]="linkTypes" [linkData]="linkData" [profileData]="profileData"></app-add-link> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6" *ngIf="profileData">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12" >
+                    <i title="Share Your Event" class="fa fa-share" (click)="myEvent()" ></i>
+                    <div class="preview-wrap"  [ngStyle]="{ 'background-color': profileData.theme.bg_colour  }">
+                      <app-link-preview  [linkData]="linkData" [profileData]="profileData"></app-link-preview>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab__content" >
+       <app-event-appearance [profileData]="profileData" *ngIf="tabType==='appearance'"></app-event-appearance>
+    </div>
+
+  </div>
+
+
+
+</div>
+<!--  -->

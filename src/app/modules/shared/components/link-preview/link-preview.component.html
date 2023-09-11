@@ -1,0 +1,84 @@
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="preview-wrap"> -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="image text-center">
+      <img
+              alt=""
+              *ngIf="profileData.profile_image" [src]="profileData.profile_image"
+              class="img-100 rounded-circle ng-star-inserted"
+            />
+      <div class="no-image" *ngIf="!profileData.profile_image">
+        <span>{{ profileData?.name?.slice(0, 1) }}</span>
+      </div>
+    </div>
+    <div class="prodile-details text-center mt-3 mb-3">
+      <p>{{ profileData?.name }} 
+        <!-- <img src="../../../../../assets/icons/profile_verify.png"/> -->
+      </p>
+      <p>{{ profileData?.bio }}</p>
+    </div>
+
+    <div class="social-icons" *ngIf="linkData">
+      <div class="text-center social-icons">
+        <ul>
+            <li  *ngFor="let link of getSocialTray(); index as i">
+                <img *ngIf="link?.link_bg_image" [src]="link.link_bg_image">
+                <div *ngIf="link?.link_icon" class="icon"
+                [ngStyle]="{
+                  background: link.bg_colour ? link.bg_colour : profileData?.theme?.link_bg ,
+                  color: link?.content_colour? link?.content_colour: profileData?.theme?.link_content_colour
+                }"><i class="{{link.link_icon}}"></i></div>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="link-listing">
+      <div *ngFor="let link of linkData; index as i">
+        <div class="link-item" *ngIf="link.status === 1"
+        [ngStyle]="{
+          background: link.bg_colour ? link.bg_colour : profileData?.theme?.link_bg ,
+          color: link?.content_colour? link?.content_colour: profileData?.theme?.link_content_colour
+        }">
+          <a
+            class="link-url"
+            height="auto"
+            [ngStyle]="{
+              cursor: !isValidUrl(link?.input_value_2)
+                  ? 'auto'
+                  : 'pointer',
+              background: link.bg_colour ? link.bg_colour : profileData?.theme?.link_bg ,
+              color: link?.content_colour? link?.content_colour: profileData?.theme?.link_content_colour
+            }"
+            (click)="openLink(link)"
+          >
+            <div  class="link-icon" [ngStyle]="{ top: link?.link_icon ? '60%' :'57%'}">
+              <i *ngIf="link?.link_icon" [ngStyle]="{ color: link?.content_colour ? link?.content_colour : profileData?.theme?.link_content_colour }"
+                class="{{ link?.link_icon }}"
+              ></i>
+              <img *ngIf="link?.link_bg_image" [src]="link?.link_bg_image"/>
+            </div>
+            <p class="">{{ link?.input_value_1 }}</p>
+          </a>
+          <ul class="rsvp-ul" *ngIf="link?.type ==='rsvp' && link.status === 1"> 
+            <li  >
+              <h6 class="">Yes</h6>
+            </li>
+            <li  >
+              <h6 class="">No</h6>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-3" *ngIf="link?.type ==='youtube' && link.status === 1">
+          <iframe [src]='getPreview(link?.input_value_2)' height="100%" width="100%" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div>
+  </div>
+</div> -->

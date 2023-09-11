@@ -1,0 +1,18 @@
+
+.social-widget-card{
+    border: 2px solid #efefef !important;
+    cursor: pointer;
+    .fa-plus-square-o{
+        font-size: 17px;
+    }
+}
+.social-widget-card .media .social-font {
+    width: 50px !important;
+    height: 50px !important;
+}
+.social-widget-card:hover{
+    box-shadow: rgb(186 212 253) 0px 2px 8px 0px;
+    i{
+        color: var(--theme-deafult)
+    }
+}

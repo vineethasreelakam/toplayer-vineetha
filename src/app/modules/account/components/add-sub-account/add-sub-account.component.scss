@@ -1,0 +1,31 @@
+.close{
+    border: none;
+    background: #fff;
+    font-size: 20px;
+}
+.login-form {
+    padding: 20px
+}
+.table td{
+    padding: 0.8rem 0.5rem !important;
+}
+.login-form {
+    width: 100%;
+}
+.login-form .btn{
+    text-transform: capitalize ;
+}
+
+//  .dark-only .modal-main-box .modal-content{
+//     background-color: #262932;
+//     box-shadow: 1px 1px 2px 1px rgb(29 28 28 / 8%);
+//     border: 1px solid #374558;
+// }
+.text-right{
+    text-align: right;
+}
+.m-form__group .input-group-text {
+    background-color: rgba(62, 92, 158, 0.1);
+    border: none;
+    color: #3E5C9E;
+}

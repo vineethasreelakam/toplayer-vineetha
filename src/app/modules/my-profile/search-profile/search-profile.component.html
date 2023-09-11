@@ -1,0 +1,76 @@
+<!-- <app-breadcrumb
+  [title]="'Profile'"
+  [active_item]="'Search Profile'"
+></app-breadcrumb> -->
+
+<div class="search-profiles">
+    <div class="container">
+      <!-- <div class="row">
+        <div class="col-md-12 backBtn">
+            <p><i class="fa fa-long-arrow-left" routerLink='/profile' title="Go Back"></i></p>
+        </div>
+      </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-4 search-card">
+                    <!-- <div class="card-header pb-0">
+                      
+                    </div> -->
+                    <form class="form theme-form">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12 backBtn mb-3">
+                            <p><i class="icon-arrow-left" (click)="goBack()" title="Go Back"></i></p>
+                            <button class="btn btn-pill btn-info follow-btn" type="button" (click)="backToApplication()">Back To Application</button>
+                        </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="searchProfile">Search {{placeHolder}}</label>
+                              <input class="form-control" #profileSearchInput id="searchProfile" type="text" placeholder="Enter {{placeHolder}}..">
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="allProfiles">
+            <div class="col-xl-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive custom-scrollbar">
+                    <table class="table table-bordernone profile-list">
+                      <tbody>
+                        <tr *ngFor="let user of allProfiles">
+                          <td>
+                            <div class="media">
+                              <img
+                                class="img-fluid me-3 b-r-5"
+                                src="../assets/images/avtar/woman.png"
+                                alt=""
+                              />
+                              <div class="media-body">
+                                  <h6>{{user?.name}} (Profile ID : {{user?.public_profile_id}})</h6>
+                                <p>{{user?.bio}}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="text-right">
+                            <button class="btn btn-primary active ml-2" type="button" (click)="view(user)" routerLink='/user/my-profile'>
+                              View
+                            </button>
+                          </td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+         
+          </div>
+    </div>
+</div>

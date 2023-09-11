@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <h5 class="modal-title"><i *ngIf="selectedUI !=='0'" class="icon-arrow-left" (click)="selectedUI = '0'"></i> Add Thumbnail</h5>
+  <button
+    type="button"
+    class="close"
+    data-dismiss="modal"
+    (click)="activeModal.close('dismiss')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row pd-rl">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="collection-filter-block" *ngIf="selectedUI === '0'"> 
+            <ul class="pro-services">
+              <li (click)="selectedUI = '1'">
+                <div class="media">
+                 <img class="image" src="../../../../../../assets/images/new/icons/select-modal--upload.webp" alt="">
+                  <div class="media-body">
+                    <h5>Upload your own thumbnail</h5>
+                    <p>From your computer.</p>
+                  </div>
+                </div>
+              </li>
+              <li (click)="selectedUI = '2'">
+                <div class="media">
+                  <img class="image" src="../../../../../../assets/images/new/icons/select-modal--icons.webp" alt="">
+                  <div class="media-body">
+                    <h5>Choose from Tabler Icons</h5>
+                    <p>Choose from Tabler Icons</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- image -->
+          <div class="row"  *ngIf="selectedUI === '1'">
+            <div class="col-sm-12">
+              <input class="form-control" type="file" aria-label="file example" required="" (change)="selectFile($event)">
+            
+             
+            </div>
+          </div>
+          <!-- icons -->
+          <div class="row"  *ngIf="selectedUI === '2'">
+                <div class="col-sm-12">
+                 <div class="icon-container_">
+                  <div *ngFor="let p of allIcons" (click)="selectIcon(p, 'icon')">
+                    <div class="icon-div">
+                        <i class="{{p}}"></i>
+                    </div>
+                  </div>
+                 </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

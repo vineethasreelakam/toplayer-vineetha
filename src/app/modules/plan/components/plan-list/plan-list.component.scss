@@ -1,0 +1,17 @@
+.radio label::before {
+    top: 3px !important;
+}
+.radio label::after {
+    top: 8px !important;
+}
+.pricing-block:hover{
+    box-shadow: rgb(186 212 253) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+.pricing-block.active{
+    border: 1px solid var(--theme-deafult)!important;
+    box-shadow: rgb(186 212 253) 0px 2px 8px 0px;
+}
+.apply-btn{
+    border-radius: 5px !important;
+}

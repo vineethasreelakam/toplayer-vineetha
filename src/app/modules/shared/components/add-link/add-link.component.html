@@ -1,0 +1,598 @@
+<!-- <form class="card">
+  <div class="card-header pb-0">
+    <h4 class="card-title mb-0">Profile Link</h4>
+  </div>
+  <div class="card-body"> -->
+<section class="primary add-link-editor">
+  <div class="row">
+    <div class="col-md-12 mb-8">
+      <button
+        class="btn btn-primary btn-block add-link-btn"
+        type="button"
+        (click)="selectLinkType()"
+        [disabled]="buttonDisable"
+      >
+        <span class="flex items-center justify-center"
+          ><span class="block pr-xs"><i class="icon-plus"></i> </span
+          ><span class="block font-semibold text-md"
+            >Add Connect Point</span
+          ></span
+        >
+      </button>
+    </div>
+
+    <div class="col-md-12">
+      <!-- <div class="row ui-sortable" dragula="links" [(dragulaModel)]="linkData"> -->
+      <div class="row ui-sortable scrollAble-div">
+        <div
+          class="col-sm-12 col-md-12 col-xl-12"
+          *ngFor="let link of linkData; index as i"
+        >
+          <div class="card box-shadow_">
+            <div class="card-body">
+              <h4>{{ link?.type | titlecase }}</h4>
+              <hr />
+              <div class="flex-1 h-full">
+                <div
+                  class="flex justify-between items-start pt-2 gap-2 text-concrete bottom-icon-list"
+                  style="width: 100%"
+                >
+                  <div class="flex gap-2 flex-wrap" style="width: 100%">
+                    <div>
+                      <div
+                        class="title-input"
+                        *ngIf="link?.type === 'link' || link?.type === 'text'"
+                      >
+                        <div class="mb-3 m-form__group">
+                          <!-- <label>Enter {{link?.titleText}}</label> -->
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="{{ link?.input_value_1 }}"
+                              placeholder="Enter {{ link?.titleText }}"
+                              (input)="changeTitle($event, i)"
+                              #inputBox
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        *ngIf="
+                          link?.type === 'link' ||
+                          link?.type === 'location' ||
+                          link?.type === 'youtube'
+                        "
+                        class="title-input"
+                      >
+                        <div class="mb-3 m-form__group">
+                          <!-- <label>Enter {{link?.urlText}} Url</label> -->
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              placeholder="Enter {{ link?.urlText }} Url"
+                              value="{{ link?.input_value_2 }}"
+                              class="form-control"
+                              (input)="changeUrl($event, i)"
+                            />
+                          </div>
+                          <!-- <div class="mt-3" *ngIf="link?.type ==='location'">
+                            <iframe id="" class="" height="100%" width="100%" style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.885178703492!2d76.3030953783154!3d10.026333064503422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dc76749b51d%3A0x261a1b6542664c16!2sLulu%20Edapally!5e0!3m2!1sen!2sin!4v1685176311839!5m2!1sen!2sin"></iframe>
+                          </div> -->
+                          <!-- <div class="mt-3" *ngIf="link?.type ==='youtube'">
+                            <iframe [src]='getPreview(link?.input_value_2)' height="100%" width="100%" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          </div> -->
+                        </div>
+                      </div>
+
+                      <!-- link type = Image -->
+                      <div *ngIf="link?.type === 'image'" class="title-input">
+                        <div class="mb-3 m-form__group">
+                          <label>Choose File</label>
+                          <div class="input-group">
+                            <input
+                              type="file"
+                              placeholder="Enter Url"
+                              class="form-control"
+                              (change)="selectFile($event, i)"
+                            />
+                            <div class="img-link" *ngIf="link?.input_value_2">
+                              <div>
+                                <p style="margin: 0; margin-top: 5px;">Selected File: <span style="margin-right: 10px;">{{link?.input_value_1}}</span></p>
+                                <a  href="{{link?.input_value_2}}" target="_blank"><img width="15%" [src]="link?.input_value_2"/></a>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end link type = Image -->
+
+                      <!-- Date time picker -->
+                      <!-- <div *ngIf="link?.linkType === 'datetime'"
+                        class="title-input"
+                        >
+                        <div class="mb-3 m-form__group">
+                          <label>Select Date & Time</label>
+                          <div class="input-group">
+                            <input
+                            type="text"
+                            placeholder="Select Date & Time"
+                            class="form-control"
+                            [owlDateTimeTrigger]="dt" [owlDateTime]="dt"
+                          />
+                          <owl-date-time #dt></owl-date-time>
+                          </div>
+                        </div>
+                        </div> -->
+                      <!-- end date time picker -->
+
+                      <!-- link type = RSVP -->
+                      <div *ngIf="link?.type === 'rsvp'" class="title-input">
+                        <div class="mb-3 m-form__group">
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="{{ link?.input_value_1 }}"
+                              placeholder="Enter text"
+                              (input)="changeTitle($event, i)"
+                            />
+                            <!-- <ul class="rsvp-ul"> 
+                            <li  [ngClass]="{'active': (link?.input_value_2 === 'yes')}" (click)="rsvpClick('yes', i)">
+                              <h6 class="">Yes</h6>
+                            </li>
+                            <li [ngClass]="{'active': link?.input_value_2 === 'no'}" (click)="rsvpClick('no', i)">
+                              <h6 class="">No</h6>
+                            </li>
+                          
+                          </ul> -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end link type = RSVP -->
+
+                      <!-- Timer -->
+                      <div *ngIf="link?.type === 'timer'" class="title-input">
+                        <div class="mb-3 m-form__group">
+                          <label>Select Timer</label>
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              placeholder="Select Date & Time"
+                              value="{{ link?.input_value_2 }}"
+                              class="form-control"
+                              (click)="shedule_.click()"
+                            />
+                            <!-- #shedule -->
+                            <input
+                              type="text"
+                              #shedule_
+                              placeholder="Select Date & Time"
+                              class="form-control date-timer-picker_"
+                              (dateTimeInput)="changeUrl($event, i)"
+                              [owlDateTimeTrigger]="dt2"
+                              [owlDateTime]="dt2"
+                            />
+                            <owl-date-time
+                              backdropClass="'custom-backdropClass'"
+                              panelClass="'custom-panelClass'"
+                              #dt2
+                            ></owl-date-time>
+                            <!-- <input
+                            type="text"
+                            placeholder="Select Date & Time"
+                            class="form-control"
+                            [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2"
+                            (dateTimeInput)="changeUrl($event, i)"
+                          />
+                          <owl-date-time #dt2></owl-date-time> -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end Timer -->
+
+                      <!-- Call -->
+                      <div
+                        *ngIf="link?.type === 'call' || link?.type === 'sms'"
+                        class=""
+                      >
+                        <div class="mb-3 m-form__group">
+                          <!-- <label class="form-label">Enter Mobile Number</label> -->
+                          <div class="input-group">
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="Mobile Number"
+                              value="{{ link?.input_value_1 }}"
+                              (input)="changeTitle($event, i)"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end Call -->
+
+                      <!-- Whatsapp -->
+                      <div *ngIf="link?.type === 'whatsapp'" class="">
+                        <div class="mb-3 m-form__group">
+                          <!-- <label class="form-label">WhatsApp Link</label> -->
+                          <div class="input-group">
+                            <span class="input-group-text">https://wa.me/</span>
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="WhatsApp Number"
+                              value="{{ link?.input_value_1 }}"
+                              (input)="changeTitle($event, i)"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end Whatsapp -->
+                      <!-- Snap -->
+                      <div class="title-input" *ngIf="link?.type === 'snap'">
+                        <div class="mb-3 m-form__group">
+                          <label>Snap</label>
+                          <div class="input-group">
+                            <ng-select
+                              class="form-control form-ng-select custom-ng-select"
+                              autocomplete="off"
+                              placeholder="Snap"
+                              (change)="snapChange($event, i)"
+                              [(ngModel)]="link['input_value_1']"
+                            >
+                              <ng-option
+                                *ngFor="let snap of snapList"
+                                [value]="snap.snap_id"
+                                >{{ snap.title }}</ng-option
+                              >
+                            </ng-select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end snap -->
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="right-div">
+                      <label class="switch">
+                        <input
+                          type="checkbox"
+                          value="{{ link.status }}"
+                          [checked]="link.status === 1 ? true : false"
+                          (change)="linkStatusChange($event, link)"
+                        />
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <hr />
+                <div
+                  class="flex justify-between items-start gap-2 text-concrete bottom-icon-list"
+                >
+                  <div class="flex gap-2 flex-wrap">
+                    <button
+                      *ngIf="link?.type === 'link'"
+                      class="transition h-auto py-1 px-2 rounded-sm"
+                      title="Redirect"
+                      (click)="addRedirect(i, link)"
+                    >
+                      <div class="flex items-center">
+                        <div class="">
+                          <i
+                            class="icon-back-right"
+                            [ngStyle]="{
+                              color: link?.addScheduleStats
+                                ? '#3e5c9e'
+                                : 'rgb(103, 107, 95)'
+                            }"
+                          ></i>
+                        </div>
+                        <span class="sr-only">Redirect</span>
+                      </div>
+                    </button>
+                    <button
+                      *ngIf="checkOption(link, 'thumbnail')"
+                      class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                      title="Thumbnail"
+                      (click)="addThumnail(i, link)"
+                    >
+                      <div class="flex items-center">
+                        <div class="">
+                          <i
+                            class="icon-image"
+                            [ngStyle]="{
+                              color: (link?.link_icon || link?.link_bg_image)
+                                ? '#3e5c9e'
+                                : 'rgb(103, 107, 95)'
+                            }"
+                          ></i>
+                        </div>
+                        <span class="sr-only">Thumbnail</span>
+                      </div>
+                    </button>
+                    <button
+                      *ngIf="checkOption(link, 'schedule')"
+                      (click)="addSchedule(i, link)"
+                      class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                      title="Schedule"
+                    >
+                      <div class="flex items-center">
+                        <div class="">
+                          <i
+                            class="icon-calendar"
+                            [ngStyle]="{
+                              color:
+                                link?.addScheduleStats || link?.enable_time
+                                  ? '#3e5c9e'
+                                  : 'rgb(103, 107, 95)'
+                            }"
+                          ></i>
+                        </div>
+                        <span class="sr-only">Schedule</span>
+                      </div>
+                    </button>
+
+                    <button
+                      *ngIf="checkOption(link, 'colorPicker')"
+                      (click)="addColorPicker(i, link)"
+                      class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                      title="Color Picker"
+                    >
+                      <div class="flex items-center">
+                        <div class="">
+                          <i
+                            class="icon-paint-bucket"
+                            [ngStyle]="{
+                              color:
+                                link?.addColorIcon || link?.content_colour
+                                  ? '#3e5c9e'
+                                  : 'rgb(103, 107, 95)'
+                            }"
+                          ></i>
+                        </div>
+                        <span class="sr-only">Color</span>
+                      </div>
+                    </button>
+                    <button
+                      *ngIf="checkOption(link, 'analytics')"
+                      class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                    >
+                      <div class="flex items-center analytic-btn">
+                        <div><i class="icon-stats-up"></i></div>
+                        <span class="sr-only">Analytics</span
+                        ><span class="ml-1 sm:block"
+                          ><div
+                            data-testid="ClassicAnalyticsButtonLabel"
+                            class="sc-kQEKhi sc-ekBFwZ ghnpHt ezWqGj"
+                          >
+                            <div class="sc-kQEKhi bbrHtl">
+                              <p class="sc-bfeUNi igcced totalAnalytics">
+                                {{ link?.count_click || 0 }} clicks
+                              </p>
+                            </div>
+                          </div></span
+                        >
+                      </div>
+                    </button>
+
+                    <button
+                    *ngIf="checkOption(link, 'social_tray') && link?.social_tray != null"
+                    class="transition h-auto py-1 px-2 rounded-sm"
+                    title="Social Tray"
+                    (click)="addSocialTray(i, link)"
+                  >
+                    <div class="flex items-center">
+                      <div class="">
+                        <i
+                          class="icon-package"
+                          [ngStyle]="{
+                            color: link?.social_tray != null
+                              ? '#3e5c9e'
+                              : 'rgb(103, 107, 95)'
+                          }"
+                        ></i>
+                      </div>
+                      <span class="sr-only">Social Tray</span>
+                    </div>
+                  </button>
+                  </div>
+                  <div
+                    class="flex justify-between items-end gap-2 text-concrete bottom-icon-list"
+                    style="float: right"
+                  >
+                    <div>
+                      <button
+                        (click)="removeLink(i, link)"
+                        class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                        title="Delete"
+                      >
+                        <div class="flex items-center">
+                          <div class="">
+                            <i class="icon-trash"></i>
+                          </div>
+                          <span class="sr-only">Delete</span>
+                        </div>
+                      </button>
+                      <button
+                        class="transition h-auto py-1 px-2 rounded-sm text-concrete"
+                        title="Save"
+                      >
+                        <div
+                          class="flex items-center"
+                          (click)="saveLink(i, link)"
+                        >
+                          <div class="">
+                            <i class="icon-save"></i>
+                          </div>
+                          <span class="sr-only">Save</span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- redirect for link -->
+              <div class="col-md-12" *ngIf="link?.addRedirectStats">
+                <hr />
+                <div class="mb-3 m-form__group">
+                  <label>Enable Redirect</label>
+                  <div class="input-group">
+                    <span class="rsvp-lable">No</span>
+                    <label class="switch">
+                      <input type="checkbox" 
+                      value="{{ link.redirect_status }}"
+                        [checked]="link?.redirect_status"
+                        (change)="setReditectLink($event, link)"/>
+                      <span class="slider round"></span>
+                    </label>
+                    <span class="rsvp-lable">Yes</span>
+                  </div>
+                </div>
+              </div>
+              <!-- end -->
+              <!-- Schedule for link -->
+              <div class="col-md-12" *ngIf="link?.addScheduleStats">
+                <hr />
+                <div
+                  class="mb-3 m-form__group dateTimerPicker_main"
+                  style="position: relative"
+                >
+                  <label>Schedule</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Select Date & Time"
+                      value="{{ link?.enable_time }}"
+                      class="form-control"
+                      (click)="shedule.click()"
+                    />
+                    <!-- #shedule -->
+                    <input
+                      type="text"
+                      #shedule
+                      placeholder="Select Date & Time"
+                      class="form-control date-timer-picker_"
+                      (dateTimeInput)="sheduledDateTime($event, link, i)"
+                      [owlDateTimeTrigger]="dt3"
+                      [owlDateTime]="dt3"
+                    />
+                    <owl-date-time
+                      backdropClass="'custom-backdropClass'"
+                      panelClass="'custom-panelClass'"
+                      #dt3
+                    ></owl-date-time>
+                  </div>
+                  <!-- <div class="input-group">
+                        <input
+                        type="text"
+                        placeholder="Select Date & Time"
+                        class="form-control"
+                        [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [selectMode]="'range'"
+                      />
+                      <owl-date-time #dt3></owl-date-time>
+                      </div> -->
+                </div>
+              </div>
+              <!-- end -->
+              <!-- color picker for link-->
+              <div class="col-md-12" *ngIf="link?.addColorIcon">
+                <hr />
+
+                <div class="color-picker-div">
+                  <div class="mb-3 m-form__group" style="margin-right: 3rem">
+                    <label>Pick Content Color</label>
+                    <div class="input-group">
+                      <input
+                        type="color"
+                        value="{{ link?.content_colour }}"
+                        style="width: 100%"
+                        (input)="contentColorChange($event, i)"
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3 m-form__group">
+                    <label>Pick Background Color</label>
+                    <div class="input-group">
+                      <input
+                        type="color"
+                        value="{{ link?.bg_colour }}"
+                        style="width: 100%"
+                        (input)="contentBgChange($event, i)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end color picker -->
+              <!-- social tray -->
+                <!-- redirect for link -->
+                <div class="col-md-12" *ngIf="link?.addSocialTrayStats">
+                  <hr />
+                  <div class="mb-3 m-form__group">
+                    <label>Enable Social Tray</label>
+                    <div class="input-group">
+                      <span class="rsvp-lable">No</span>
+                      <label class="switch">
+                        <input type="checkbox" 
+                        value="{{ link.social_tray }}"
+                        [checked]="link.social_tray"
+                        (change)="addSocialTrayToLink($event, link)"
+                        />
+                        <!-- (change)="linkStatusChange($event, link)" -->
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="rsvp-lable">Yes</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end -->
+              <!-- end social tray -->
+              <!-- color picker for link-->
+              <!-- <div class="col-md-12" *ngIf="link?.addThumbnailStats">
+                <hr />
+                <div class="thumbnail-div">
+                  <div class="icon">
+                    <i class="{{ link?.link_icon }}"></i>
+                  </div>
+                  <div class="icon-btns form-group">
+                    <button
+                      class="btn btn-primary btn-block"
+                      type="button"
+                      (click)="addThumnail(i, link)"
+                    >
+                      Change
+                    </button>
+                    <button
+                      class="btn btn-remove btn-block"
+                      type="button"
+                      (click)="removeThumnail(i)"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div> -->
+              <!-- end color picker -->
+
+              <!-- delete and save -->
+              <div class="col-md-12">
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- </div> -->
+<!-- <div class="card-footer text-end">
+    <button class="btn btn-primary" type="submit">Update Profile</button>
+  </div> -->
+<!-- </form> -->

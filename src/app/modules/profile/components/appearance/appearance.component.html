@@ -1,0 +1,249 @@
+<div class="edit-profile">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header pb-0">
+          <h4 class="card-title mb-0">Appearance</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="appearanceForm" (ngSubmit)="sumbitHandler()">
+            <div class="row mb-2">
+              <div class="profile-title">
+                <div
+                  class="media text-center mb-3"
+                  style="text-align: center; display: block"
+                >
+                  <!-- <img class="img-70 rounded-circle" alt="" *ngIf="!preview" src='assets/images/user/7.jpg' > -->
+                  <div class="no-image" *ngIf="!profileData.profile_image">
+                    <span *ngIf="profileData">{{
+                      profileData["name"].slice(0, 1) || ""
+                    }}</span>
+                    <span *ngIf="!profileData.profile_image">X</span>
+                  </div>
+                  <img
+                    class="img-70 rounded-circle"
+                    alt=""
+                    *ngIf="profileData.profile_image"
+                    [src]="profileData.profile_image"
+                  />
+                </div>
+                <div class="upload-btns">
+                  <div class="panel">
+                    <div class="button_outer">
+                      <div class="btn_upload">
+                        <input
+                          type="file"
+                          id="upload_file"
+                          (change)="selectImage($event)"
+                        />
+                        Pick an image
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    *ngIf="preview != ''"
+                    class="btn btn-remove btn-block"
+                    type="button"
+                    (click)="removeImage()"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="mb-3">
+                <label class="form-label">Profile Title </label>
+                <input
+                  class="form-control"
+                  placeholder="Enter Profile Title"
+                  formControlName="name"
+                  [ngClass]="{
+                    'is-invalid':
+                      (isFormSubmitted &&
+                        appearanceForm.controls.name.errors) ||
+                      (!appearanceForm.controls.name.pristine &&
+                        appearanceForm.controls.name.invalid)
+                  }"
+                />
+                <div
+                  class="invalid-feedback"
+                  *ngIf="
+                    (isFormSubmitted && appearanceForm.controls.name?.errors) ||
+                    (!appearanceForm.controls.name?.pristine &&
+                      appearanceForm.controls.name?.invalid)
+                  "
+                >
+                  <div *ngIf="appearanceForm.controls.name.errors?.required">
+                    Profile Title is required
+                  </div>
+                </div>
+              </div>
+              <label class="form-label">Bio</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                formControlName="bio"
+                placeholder="Enter Bio"
+                [ngClass]="{
+                  'is-invalid':
+                    (isFormSubmitted && appearanceForm.controls.bio.errors) ||
+                    (!appearanceForm.controls.bio.pristine &&
+                      appearanceForm.controls.bio.invalid)
+                }"
+              >
+I have my permanent muses and my muses of the moment.
+            </textarea
+              >
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (isFormSubmitted && appearanceForm.controls.bio.errors) ||
+                  (!appearanceForm.controls.bio.pristine &&
+                    appearanceForm.controls.bio.invalid)
+                "
+              >
+                <div *ngIf="appearanceForm.controls.bio.errors?.required">
+                  Bio is required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-footer text-right">
+              <button class="btn btn-primary btn-block">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div
+                class="preview-wrap"
+                [ngStyle]="{ 'background-color': profileData.theme.bg_colour }"
+              >
+                <app-link-preview
+                  [linkData]="linkData"
+                  [profileData]="profileData"
+                  [selectedTheme]="selectedTheme"
+                ></app-link-preview>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>
+    Custom Or
+    <button class="btn btn-primary btn-block" (click)="getAllThemes()">
+      Select Theme
+    </button>
+  </h3>
+  <hr />
+  <div class="row">
+    <div class="col-xl-6">
+      <h4>Backgrounds</h4>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="">
+                <h5>Color</h5>
+                <div class="flex custom-design">
+                  <input
+                    type="color"
+                    class="color-picker"
+                    value="{{profileData['theme']['bg_colour']}}"
+                    (input)="changeBgCol($event)"
+                    style="width: 10%"
+                  />
+                  <input
+                    type="text"
+                    class="form-control color-dispaly"
+                    value="{{profileData['theme']['bg_colour']}}"
+                    style="width: 20%"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mt-3 mb-1 text-left">
+              <button class="btn btn-primary btn-block" (click)="applyCustomTheme()">
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <h4>Buttons</h4>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h5>Color</h5>
+                    <div class="flex custom-design">
+                      <input
+                        type="color"
+                        class="color-picker"
+                        value="{{profileData['theme']['link_bg']}}"
+                        (input)="changeBtnCol($event)"
+                        style="width: 20%"
+                      />
+                      <input
+                        type="text"
+                        class="form-control color-dispaly"
+                        value="{{ profileData['theme']['link_bg']}}"
+                        style="width: 40%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Font color</h5>
+                    <div class="flex custom-design">
+                      <input
+                        type="color"
+                        class="color-picker"
+                        value="{{profileData['theme']['link_content_colour']}}"
+                        (input)="changeBtnFontCol($event)"
+                        style="width: 20%"
+                      />
+                      <input
+                        type="text"
+                        class="form-control color-dispaly"
+                        value="{{ profileData['theme']['link_content_colour'] }}"
+                        style="width: 40%"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mt-3 mb-1 text-left">
+              <button class="btn btn-primary btn-block" (click)="applyCustomTheme()">
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-12"> <button class="btn btn-primary btn-block" (click)="getAllThemes()">
+      Apply
+    </button></div> -->
+  </div>
+  <!-- <h3>Themes</h3>
+  <hr/>
+  <div class="row">
+    <div class="col-md-12">
+      <app-theme-list [linkData]="linkData" [profileData]="profileData" (emitService)="setSelectedTheme($event)"></app-theme-list>
+    </div>
+  </div> -->
+</div>

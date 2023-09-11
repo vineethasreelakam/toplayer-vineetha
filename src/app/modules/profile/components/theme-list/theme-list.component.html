@@ -1,0 +1,80 @@
+
+<div class="modal-header">
+  <h5 class="modal-title">Select Theme</h5>
+  <button
+    type="button"
+    class="close"
+    data-dismiss="modal"
+    (click)="activeModal.close('dismiss')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let theme of allThemes; index as i" (click)="selectedTheme(theme)">
+      <div class="preview-wrap" [ngStyle]="{ 'background-color': theme?.bg_colour }"  
+      [ngClass]="{'active-theme': activeTheme === theme.profile_theme_id}">
+          <div class="image text-center">
+            <!-- <img
+                            alt=""
+                            src="assets/images/user/7.jpg"
+                            class="img-100 rounded-circle ng-star-inserted"
+                          /> -->
+            <div class="no-image">
+              <span>{{ profileData?.name?.slice(0, 1) }}</span>
+            </div>
+          </div>
+          <div class="prodile-details text-center mt-3 mb-3">
+            <p>
+              {{ profileData?.name }}
+              <!-- <img src="../../../../../assets/icons/profile_verify.png"/> -->
+            </p>
+            <p>{{ profileData?.bio }}</p>
+          </div>
+    
+          <div class="link-listing">
+              <div *ngFor="let link of linkData; index as i">
+                  <div class="link-item" *ngIf="link.status === 1">
+                    <a
+                      class="link-url"
+                      height="auto"
+                      [ngStyle]="{
+                        background: theme.link_bg,
+                        color: theme?.link_content_colour
+                      }"
+                    >
+                      <div *ngIf="link?.thumbnailIcon" class="link-icon">
+                        <i
+                          [ngStyle]="{ color: theme?.link_content_colour }"
+                          class="{{ link?.thumbnailIcon }}"
+                        ></i>
+                      </div>
+                      <p class="">{{ link?.input_value_1 }}</p>
+                    </a>
+                  </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-12 text-right">
+      <hr/>
+      <button
+      class="btn btn-primary btn-block"
+      type="button"
+      (click)="submit()"
+    >
+      Apply 
+    </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

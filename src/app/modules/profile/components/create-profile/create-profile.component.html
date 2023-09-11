@@ -1,0 +1,102 @@
+<app-breadcrumb
+  [title]="'Profile'"
+  [active_item]="'Create Profile'"
+></app-breadcrumb>
+
+
+<div class="container">
+
+  <div class="tab-wrap">
+
+    <input type="radio" id="tab1" name="tabGroup1" class="tab" checked (click)="tabChange('profile')">
+    <label for="tab1">Profile</label>
+
+    <input type="radio" id="tab2" name="tabGroup1" class="tab" (click)="tabChange('appearance')">
+    <label for="tab2">Appearance</label>
+
+    <div class="tab__content" >
+      <div class="edit-profile" *ngIf="tabType==='profile'">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header pb-0">
+                <h4 class="card-title mb-0">Profile Link  <span class="view-profile" style="margin: 0 15px;" *ngIf="profileData" (click)="viewProfile()" target="_blank"><a>View Profile</a></span></h4>
+              
+              </div>
+              <div class="card-body">
+                <!-- <app-add-link (emitService)="getLinkData($event)" (deleteLinkService)="deleteLink($event)" [buttonDisable]="btnIsDisabled" [linkTypes]="linkTypes" [linkData]="linkData" [profileData]="profileData"></app-add-link> -->
+              </div>
+            </div>
+      
+           
+          </div>
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12" *ngIf="profileData">
+                    <i title="Share Your Profile" class="fa fa-share" (click)="myProfile()" ></i>
+                    <div class="preview-wrap" [ngStyle]="{ 'background-color': profileData.theme.bg_colour  }">
+                      <app-link-preview  [linkData]="linkData" [profileData]="profileData"></app-link-preview>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab__content" >
+       <app-appearance *ngIf="tabType==='appearance'"></app-appearance>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<!-- <div class="edit-profile">
+  <div class="row">
+    <div class="col-xl-8">
+      <div class="card">
+        <div class="card-header pb-0">
+          <h4 class="card-title mb-0">Profile Link</h4>
+        </div>
+        <div class="card-body">
+          <label class="form-label">Profile ID </label>
+          <div class="d-flex justify-content-center mb-3">
+            <div class="input-group" >
+              <input
+                class="form-control me-2"
+                type="text"
+                name="profileID"
+                [(ngModel)] ="profileID"
+                placeholder="Enter Profile ID"/>
+                <a class="btn btn-primary apply-btn" *ngIf="!profileID" (click)="addProfileId()">Add</a>
+                <a class="btn btn-primary apply-btn" *ngIf="profileID" (click)="editProfileId()">Update</a>
+              </div>
+          </div>
+          <app-add-link (emitService)="getLinkData($event)" [buttonDisable]="btnIsDisabled" ></app-add-link>
+        </div>
+      </div>
+
+     
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="preview-wrap">
+                <app-link-preview [linkData]="linkData"></app-link-preview>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
